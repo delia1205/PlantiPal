@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>483896777307-lhn926mjmd7tj5dmb7m5s6ctgac0ut6m.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.483896777307-lhn926mjmd7tj5dmb7m5s6ctgac0ut6m</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAHYr1HAsKHfaf3LdHHp6oBbx_ShIp7SuY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>483896777307</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>licenta-delia.first-try-out-on-mac</string>
+	<key>PROJECT_ID</key>
+	<string>plantipal-users</string>
+	<key>STORAGE_BUCKET</key>
+	<string>plantipal-users.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:483896777307:ios:13a06beaa248b0fb29bd7e</string>
+</dict>
+</plist>

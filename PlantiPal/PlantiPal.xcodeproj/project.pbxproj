@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8EA1AAB5ED290BFDC9456CB4 /* Pods_PlantiPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9633AB16D29AB76C083EEA02 /* Pods_PlantiPal.framework */; };
+		AB21E6C929C6443B00286D6A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB21E6C829C6443B00286D6A /* Default-568h@2x.png */; };
+		AB3391DC29C4FFE800AD10B4 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3391DB29C4FFE800AD10B4 /* PaddedTextField.swift */; };
+		AB68DC9729C8F21A003BF21A /* ArticlePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68DC9629C8F21A003BF21A /* ArticlePageViewController.swift */; };
+		AB68DC9929C8F8E8003BF21A /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68DC9829C8F8E8003BF21A /* global.swift */; };
+		AB75B5B229DF638000DE0CCD /* PlantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75B5B129DF638000DE0CCD /* PlantList.swift */; };
+		AB82905529CD9A7A00258EC4 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB82905429CD9A7A00258EC4 /* Article.swift */; };
+		AB8FB7D329CCFC96007A8715 /* SettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8FB7D229CCFC96007A8715 /* SettingsPageViewController.swift */; };
+		AB95BC0F29C472DD00D27A6A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95BC0E29C472DC00D27A6A /* SignUpViewController.swift */; };
+		AB98B0B629D9C67F0024EF56 /* GardenPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B0B529D9C67F0024EF56 /* GardenPageViewController.swift */; };
+		AB98B0B829D9C69F0024EF56 /* ScanPlantPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B0B729D9C69F0024EF56 /* ScanPlantPageViewController.swift */; };
+		AB98B0BA29D9C6C10024EF56 /* ListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B0B929D9C6C10024EF56 /* ListPageViewController.swift */; };
+		AB98B0BC29D9D57F0024EF56 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B0BB29D9D57F0024EF56 /* AccountPageViewController.swift */; };
+		AB98B0BE29D9D5A10024EF56 /* EditGardenPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B0BD29D9D5A10024EF56 /* EditGardenPageViewController.swift */; };
+		AB98B0C029D9D5B00024EF56 /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B0BF29D9D5B00024EF56 /* AboutPageViewController.swift */; };
+		AB98DF1129BDD07F0003A9A3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98DF1029BDD07F0003A9A3 /* LogInViewController.swift */; };
+		ABD6C76C29B017E200A154AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6C76B29B017E200A154AA /* AppDelegate.swift */; };
+		ABD6C76E29B017E200A154AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6C76D29B017E200A154AA /* ViewController.swift */; };
+		ABD6C77129B017E200A154AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD6C76F29B017E200A154AA /* Main.storyboard */; };
+		ABD6C77329B017E500A154AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABD6C77229B017E500A154AA /* Assets.xcassets */; };
+		ABD6C77629B017E500A154AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD6C77429B017E500A154AA /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		17B0219A7866A4BC001AA24B /* Pods-PlantiPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantiPal.release.xcconfig"; path = "Target Support Files/Pods-PlantiPal/Pods-PlantiPal.release.xcconfig"; sourceTree = "<group>"; };
+		9633AB16D29AB76C083EEA02 /* Pods_PlantiPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlantiPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A027026A2C1A14B69452446F /* Pods-PlantiPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantiPal.debug.xcconfig"; path = "Target Support Files/Pods-PlantiPal/Pods-PlantiPal.debug.xcconfig"; sourceTree = "<group>"; };
+		AB21E6C829C6443B00286D6A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AB3391DB29C4FFE800AD10B4 /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
+		AB68DC9629C8F21A003BF21A /* ArticlePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageViewController.swift; sourceTree = "<group>"; };
+		AB68DC9829C8F8E8003BF21A /* global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
+		AB75B5B129DF638000DE0CCD /* PlantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantList.swift; sourceTree = "<group>"; };
+		AB82905429CD9A7A00258EC4 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		AB8FB7D229CCFC96007A8715 /* SettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewController.swift; sourceTree = "<group>"; };
+		AB95BC0E29C472DC00D27A6A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		AB98B0B529D9C67F0024EF56 /* GardenPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenPageViewController.swift; sourceTree = "<group>"; };
+		AB98B0B729D9C69F0024EF56 /* ScanPlantPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPlantPageViewController.swift; sourceTree = "<group>"; };
+		AB98B0B929D9C6C10024EF56 /* ListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPageViewController.swift; sourceTree = "<group>"; };
+		AB98B0BB29D9D57F0024EF56 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
+		AB98B0BD29D9D5A10024EF56 /* EditGardenPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGardenPageViewController.swift; sourceTree = "<group>"; };
+		AB98B0BF29D9D5B00024EF56 /* AboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
+		AB98DF1029BDD07F0003A9A3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		ABD6C76829B017E200A154AA /* PlantiPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantiPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABD6C76B29B017E200A154AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ABD6C76D29B017E200A154AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ABD6C77029B017E200A154AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ABD6C77229B017E500A154AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ABD6C77529B017E500A154AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ABD6C77729B017E500A154AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABD6C76529B017E200A154AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EA1AAB5ED290BFDC9456CB4 /* Pods_PlantiPal.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0832E654E168448D2EFA7FF7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A027026A2C1A14B69452446F /* Pods-PlantiPal.debug.xcconfig */,
+				17B0219A7866A4BC001AA24B /* Pods-PlantiPal.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		207A22F9582880E6480572CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9633AB16D29AB76C083EEA02 /* Pods_PlantiPal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB3391DD29C51C0200AD10B4 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				ABD6C77729B017E500A154AA /* Info.plist */,
+				ABD6C76F29B017E200A154AA /* Main.storyboard */,
+				ABD6C77229B017E500A154AA /* Assets.xcassets */,
+				ABD6C77429B017E500A154AA /* LaunchScreen.storyboard */,
+				ABD6C76D29B017E200A154AA /* ViewController.swift */,
+				ABD6C76B29B017E200A154AA /* AppDelegate.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		AB3391DE29C51C2200AD10B4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AB68DC9829C8F8E8003BF21A /* global.swift */,
+				AB3391DB29C4FFE800AD10B4 /* PaddedTextField.swift */,
+				AB82905429CD9A7A00258EC4 /* Article.swift */,
+				AB75B5B129DF638000DE0CCD /* PlantList.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AB3391DF29C51C3600AD10B4 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				AB98DF1029BDD07F0003A9A3 /* LogInViewController.swift */,
+				AB95BC0E29C472DC00D27A6A /* SignUpViewController.swift */,
+				AB98B0BB29D9D57F0024EF56 /* AccountPageViewController.swift */,
+				AB98B0BD29D9D5A10024EF56 /* EditGardenPageViewController.swift */,
+				AB98B0BF29D9D5B00024EF56 /* AboutPageViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		AB68DC9529C8F1BF003BF21A /* Main Pages */ = {
+			isa = PBXGroup;
+			children = (
+				AB68DC9629C8F21A003BF21A /* ArticlePageViewController.swift */,
+				AB8FB7D229CCFC96007A8715 /* SettingsPageViewController.swift */,
+				AB98B0B529D9C67F0024EF56 /* GardenPageViewController.swift */,
+				AB98B0B729D9C69F0024EF56 /* ScanPlantPageViewController.swift */,
+				AB98B0B929D9C6C10024EF56 /* ListPageViewController.swift */,
+			);
+			path = "Main Pages";
+			sourceTree = "<group>";
+		};
+		ABD6C75F29B017E200A154AA = {
+			isa = PBXGroup;
+			children = (
+				AB21E6C829C6443B00286D6A /* Default-568h@2x.png */,
+				ABD6C76A29B017E200A154AA /* PlantiPal */,
+				ABD6C76929B017E200A154AA /* Products */,
+				0832E654E168448D2EFA7FF7 /* Pods */,
+				207A22F9582880E6480572CE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ABD6C76929B017E200A154AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABD6C76829B017E200A154AA /* PlantiPal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABD6C76A29B017E200A154AA /* PlantiPal */ = {
+			isa = PBXGroup;
+			children = (
+				AB68DC9529C8F1BF003BF21A /* Main Pages */,
+				AB3391DF29C51C3600AD10B4 /* Account */,
+				AB3391DE29C51C2200AD10B4 /* Utils */,
+				AB3391DD29C51C0200AD10B4 /* Root */,
+			);
+			path = PlantiPal;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ABD6C76729B017E200A154AA /* PlantiPal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABD6C77A29B017E500A154AA /* Build configuration list for PBXNativeTarget "PlantiPal" */;
+			buildPhases = (
+				0C69C29B3A0FA0A776260CB9 /* [CP] Check Pods Manifest.lock */,
+				ABD6C76429B017E200A154AA /* Sources */,
+				ABD6C76529B017E200A154AA /* Frameworks */,
+				ABD6C76629B017E200A154AA /* Resources */,
+				7F08791D789901074880B186 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlantiPal;
+			productName = "first try out on mac";
+			productReference = ABD6C76829B017E200A154AA /* PlantiPal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABD6C76029B017E200A154AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Delia;
+				TargetAttributes = {
+					ABD6C76729B017E200A154AA = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = ABD6C76329B017E200A154AA /* Build configuration list for PBXProject "PlantiPal" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ABD6C75F29B017E200A154AA;
+			productRefGroup = ABD6C76929B017E200A154AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABD6C76729B017E200A154AA /* PlantiPal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABD6C76629B017E200A154AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABD6C77629B017E500A154AA /* LaunchScreen.storyboard in Resources */,
+				AB21E6C929C6443B00286D6A /* Default-568h@2x.png in Resources */,
+				ABD6C77329B017E500A154AA /* Assets.xcassets in Resources */,
+				ABD6C77129B017E200A154AA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C69C29B3A0FA0A776260CB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PlantiPal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F08791D789901074880B186 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PlantiPal/Pods-PlantiPal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PlantiPal/Pods-PlantiPal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PlantiPal/Pods-PlantiPal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABD6C76429B017E200A154AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB98B0BC29D9D57F0024EF56 /* AccountPageViewController.swift in Sources */,
+				AB8FB7D329CCFC96007A8715 /* SettingsPageViewController.swift in Sources */,
+				AB68DC9729C8F21A003BF21A /* ArticlePageViewController.swift in Sources */,
+				AB82905529CD9A7A00258EC4 /* Article.swift in Sources */,
+				AB98B0BA29D9C6C10024EF56 /* ListPageViewController.swift in Sources */,
+				AB75B5B229DF638000DE0CCD /* PlantList.swift in Sources */,
+				ABD6C76E29B017E200A154AA /* ViewController.swift in Sources */,
+				AB98B0B629D9C67F0024EF56 /* GardenPageViewController.swift in Sources */,
+				AB3391DC29C4FFE800AD10B4 /* PaddedTextField.swift in Sources */,
+				ABD6C76C29B017E200A154AA /* AppDelegate.swift in Sources */,
+				AB68DC9929C8F8E8003BF21A /* global.swift in Sources */,
+				AB98B0C029D9D5B00024EF56 /* AboutPageViewController.swift in Sources */,
+				AB98B0BE29D9D5A10024EF56 /* EditGardenPageViewController.swift in Sources */,
+				AB98B0B829D9C69F0024EF56 /* ScanPlantPageViewController.swift in Sources */,
+				AB95BC0F29C472DD00D27A6A /* SignUpViewController.swift in Sources */,
+				AB98DF1129BDD07F0003A9A3 /* LogInViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ABD6C76F29B017E200A154AA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABD6C77029B017E200A154AA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ABD6C77429B017E500A154AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABD6C77529B017E500A154AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABD6C77829B017E500A154AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "/Users/delia/Desktop/licenta - delia/PlantiPal/PlantiPal/Root";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ABD6C77929B017E500A154AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "/Users/delia/Desktop/licenta - delia/PlantiPal/PlantiPal/Root";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ABD6C77B29B017E500A154AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A027026A2C1A14B69452446F /* Pods-PlantiPal.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J3FT925NCU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/PlantiPal/Root/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "licenta-delia.PlantiPal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ABD6C77C29B017E500A154AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17B0219A7866A4BC001AA24B /* Pods-PlantiPal.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J3FT925NCU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/PlantiPal/Root/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "licenta-delia.PlantiPal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABD6C76329B017E200A154AA /* Build configuration list for PBXProject "PlantiPal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABD6C77829B017E500A154AA /* Debug */,
+				ABD6C77929B017E500A154AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABD6C77A29B017E500A154AA /* Build configuration list for PBXNativeTarget "PlantiPal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABD6C77B29B017E500A154AA /* Debug */,
+				ABD6C77C29B017E500A154AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABD6C76029B017E200A154AA /* Project object */;
+}
