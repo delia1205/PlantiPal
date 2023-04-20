@@ -1,6 +1,6 @@
 //
 //  AccountPageViewController.swift
-//  first try out on mac
+//  PlantiPal
 //
 //  Created by Delia on 02/04/2023.
 //  Copyright © 2023 Delia. All rights reserved.
@@ -26,6 +26,7 @@ class AccountPageViewController: UIViewController {
     
     @IBOutlet weak var usernameText: UILabel!
     @IBOutlet weak var createdAtText: UILabel!
+    @IBOutlet weak var emailAddrText: UILabel!
     
     func getUsername() -> String {
         return loggedUser.user.username!
@@ -36,6 +37,10 @@ class AccountPageViewController: UIViewController {
         return date.toString(dateFormat: "dd-MMM-yyyy")
     }
     
+    func getEmailAddr() -> String {
+        return loggedUser.user.email!
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +49,9 @@ class AccountPageViewController: UIViewController {
         
         let createdAtDateString = getCreatedAtDate()
         self.createdAtText.text = createdAtDateString
+        
+        let emailAddrString = getEmailAddr()
+        self.emailAddrText.text = emailAddrString
     }
     
     @IBAction func backToSettings(_ sender: UIButton) {

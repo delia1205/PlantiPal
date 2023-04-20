@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8EA1AAB5ED290BFDC9456CB4 /* Pods_PlantiPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9633AB16D29AB76C083EEA02 /* Pods_PlantiPal.framework */; };
+		AB0BC89229EFF5EB00299FD3 /* ClickedArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89129EFF5EB00299FD3 /* ClickedArticleViewController.swift */; };
+		AB0BC89429F0165100299FD3 /* ChangeUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89329F0165100299FD3 /* ChangeUsernameViewController.swift */; };
+		AB0BC89629F0190000299FD3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89529F0190000299FD3 /* ChangePasswordViewController.swift */; };
+		AB0BC89829F01B8900299FD3 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89729F01B8900299FD3 /* ForgotPasswordViewController.swift */; };
 		AB21E6C929C6443B00286D6A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB21E6C829C6443B00286D6A /* Default-568h@2x.png */; };
 		AB3391DC29C4FFE800AD10B4 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3391DB29C4FFE800AD10B4 /* PaddedTextField.swift */; };
 		AB68DC9729C8F21A003BF21A /* ArticlePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68DC9629C8F21A003BF21A /* ArticlePageViewController.swift */; };
@@ -34,6 +38,10 @@
 		17B0219A7866A4BC001AA24B /* Pods-PlantiPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantiPal.release.xcconfig"; path = "Target Support Files/Pods-PlantiPal/Pods-PlantiPal.release.xcconfig"; sourceTree = "<group>"; };
 		9633AB16D29AB76C083EEA02 /* Pods_PlantiPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlantiPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A027026A2C1A14B69452446F /* Pods-PlantiPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantiPal.debug.xcconfig"; path = "Target Support Files/Pods-PlantiPal/Pods-PlantiPal.debug.xcconfig"; sourceTree = "<group>"; };
+		AB0BC89129EFF5EB00299FD3 /* ClickedArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickedArticleViewController.swift; sourceTree = "<group>"; };
+		AB0BC89329F0165100299FD3 /* ChangeUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameViewController.swift; sourceTree = "<group>"; };
+		AB0BC89529F0190000299FD3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		AB0BC89729F01B8900299FD3 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		AB21E6C829C6443B00286D6A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AB3391DB29C4FFE800AD10B4 /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		AB68DC9629C8F21A003BF21A /* ArticlePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AB0BC89029EFF5C200299FD3 /* Other Pages */ = {
+			isa = PBXGroup;
+			children = (
+				AB0BC89129EFF5EB00299FD3 /* ClickedArticleViewController.swift */,
+			);
+			path = "Other Pages";
+			sourceTree = "<group>";
+		};
 		AB3391DD29C51C0200AD10B4 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +135,9 @@
 				AB98B0BB29D9D57F0024EF56 /* AccountPageViewController.swift */,
 				AB98B0BD29D9D5A10024EF56 /* EditGardenPageViewController.swift */,
 				AB98B0BF29D9D5B00024EF56 /* AboutPageViewController.swift */,
+				AB0BC89329F0165100299FD3 /* ChangeUsernameViewController.swift */,
+				AB0BC89529F0190000299FD3 /* ChangePasswordViewController.swift */,
+				AB0BC89729F01B8900299FD3 /* ForgotPasswordViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -131,6 +150,7 @@
 				AB98B0B529D9C67F0024EF56 /* GardenPageViewController.swift */,
 				AB98B0B729D9C69F0024EF56 /* ScanPlantPageViewController.swift */,
 				AB98B0B929D9C6C10024EF56 /* ListPageViewController.swift */,
+				AB0BC89029EFF5C200299FD3 /* Other Pages */,
 			);
 			path = "Main Pages";
 			sourceTree = "<group>";
@@ -240,15 +260,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-PlantiPal-checkManifestLockResult.txt",
 			);
@@ -262,13 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PlantiPal/Pods-PlantiPal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PlantiPal/Pods-PlantiPal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PlantiPal/Pods-PlantiPal-frameworks.sh\"\n";
@@ -283,8 +293,10 @@
 			files = (
 				AB98B0BC29D9D57F0024EF56 /* AccountPageViewController.swift in Sources */,
 				AB8FB7D329CCFC96007A8715 /* SettingsPageViewController.swift in Sources */,
+				AB0BC89229EFF5EB00299FD3 /* ClickedArticleViewController.swift in Sources */,
 				AB68DC9729C8F21A003BF21A /* ArticlePageViewController.swift in Sources */,
 				AB82905529CD9A7A00258EC4 /* Article.swift in Sources */,
+				AB0BC89629F0190000299FD3 /* ChangePasswordViewController.swift in Sources */,
 				AB98B0BA29D9C6C10024EF56 /* ListPageViewController.swift in Sources */,
 				AB75B5B229DF638000DE0CCD /* PlantList.swift in Sources */,
 				ABD6C76E29B017E200A154AA /* ViewController.swift in Sources */,
@@ -295,7 +307,9 @@
 				AB98B0C029D9D5B00024EF56 /* AboutPageViewController.swift in Sources */,
 				AB98B0BE29D9D5A10024EF56 /* EditGardenPageViewController.swift in Sources */,
 				AB98B0B829D9C69F0024EF56 /* ScanPlantPageViewController.swift in Sources */,
+				AB0BC89829F01B8900299FD3 /* ForgotPasswordViewController.swift in Sources */,
 				AB95BC0F29C472DD00D27A6A /* SignUpViewController.swift in Sources */,
+				AB0BC89429F0165100299FD3 /* ChangeUsernameViewController.swift in Sources */,
 				AB98DF1129BDD07F0003A9A3 /* LogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  first try out on mac
+//  PlantiPal
 //
 //  Created by Delia on 02/03/2023.
 //  Copyright © 2023 Delia. All rights reserved.

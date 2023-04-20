@@ -1,6 +1,6 @@
 //
 //  ListPageViewController.swift
-//  first try out on mac
+//  PlantiPal
 //
 //  Created by Delia on 02/04/2023.
 //  Copyright © 2023 Delia. All rights reserved.
@@ -11,9 +11,11 @@ import Foundation
 
 class ListPageViewController: UIViewController {
     
+    var plants = [PlantData]()
     var plantNames = [String]()
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBOutlet weak var homeIcon: UIImageView!
     @IBOutlet weak var gardenIcon: UIImageView!
@@ -28,7 +30,7 @@ class ListPageViewController: UIViewController {
         view.addSubview(scrollView)
         
         decodeAPI()
-        sleep(4)
+        sleep(6)
         
         let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 55*plantNames.count))
         contentView.backgroundColor = UIColor.white.withAlphaComponent(0)
@@ -88,7 +90,14 @@ class ListPageViewController: UIViewController {
 
     @objc func buttonAction(sender:UIButton!)
     {
-        print("Button tapped")
+        print("Article button tapped")
+        for plant in plants {
+            if sender.titleLabel?.text == plant.name {
+                UIApplication.shared.open(NSURL(string: plant.wikipedia_url!)! as URL, options: [:], completionHandler: nil)
+                //print(plant.wikipedia_url!)
+                break;
+            }
+        }
     }
 
     @objc func userIconTapped(sender: UITapGestureRecognizer) {
@@ -100,6 +109,7 @@ class ListPageViewController: UIViewController {
     
     @objc func homeIconTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
+            self.spinner.startAnimating()
             print("home icon tapped")
             performSegue(withIdentifier: "goToHome", sender: self)
         }
@@ -141,11 +151,13 @@ class ListPageViewController: UIViewController {
                     var i = 0
                     while (i<80)
                     {
+                        let plant = tasks.results[i].taxon
                         let str = tasks.results[i].taxon.name
                         let plantName = str
                         //print(plantName)
                         if !self.plantNames.contains(plantName) {
                             self.plantNames.append(plantName)
+                            self.plants.append(plant)
                         }
                         i = i+1
                     }

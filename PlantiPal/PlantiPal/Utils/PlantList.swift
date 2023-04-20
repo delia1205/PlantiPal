@@ -1,6 +1,6 @@
 //
 //  PlantList.swift
-//  first try out on mac
+//  PlantiPal
 //
 //  Created by Delia on 06/04/2023.
 //  Copyright © 2023 Delia. All rights reserved.

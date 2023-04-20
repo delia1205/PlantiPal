@@ -1,6 +1,6 @@
 //
 //  SignUpViewController.swift
-//  first try out on mac
+//  PlantiPal
 //
 //  Created by Delia on 17/03/2023.
 //  Copyright © 2023 Delia. All rights reserved.
@@ -13,6 +13,7 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var usernameSignUp: PaddedTextField!
     @IBOutlet weak var passwordSignUp: PaddedTextField!
+    @IBOutlet weak var emailAddrSignUp: PaddedTextField!
     @IBOutlet weak var confPasswordSignUp: PaddedTextField!
     
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class SignUpViewController: UIViewController {
         usernameSignUp.delegate = self
         passwordSignUp.delegate = self
         confPasswordSignUp.delegate = self
+        emailAddrSignUp.delegate = self
     }
     
     @IBOutlet weak var LogInFromSignUp:UIButton!
@@ -34,6 +36,7 @@ class SignUpViewController: UIViewController {
         if (self.passwordSignUp.text == self.confPasswordSignUp.text) {
         user.username = self.usernameSignUp.text
         user.password = self.passwordSignUp.text
+        user.email = self.emailAddrSignUp.text
         
         user.signUpInBackground {(succeeded: Bool, error: Error?) -> Void in
             if let error = error {

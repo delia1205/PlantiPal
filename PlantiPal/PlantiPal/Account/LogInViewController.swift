@@ -1,6 +1,6 @@
 //
 //  LogInViewController.swift
-//  first try out on mac
+//  PlantiPal
 //
 //  Created by Delia on 12/03/2023.
 //  Copyright © 2023 Delia. All rights reserved.
@@ -13,6 +13,7 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var usernameLogIn: PaddedTextField!
     @IBOutlet weak var passwordLogIn: PaddedTextField!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +44,11 @@ class LogInViewController: UIViewController {
     }
     
     func displayAlertAndSegue(withTitle title: String, message: String) {
+        self.spinner.startAnimating()
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
             // print("Ok button tapped")
+            
             self.performSegue(withIdentifier: "goToArticlePage", sender: self)
         })
         alert.addAction(okAction)

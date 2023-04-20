@@ -1,6 +1,6 @@
 //
 //  ArticlePageViewController.swift
-//  first try out on mac
+//  PlantiPal
 //
 //  Created by Delia on 20/03/2023.
 //  Copyright © 2023 Delia. All rights reserved.
@@ -11,9 +11,11 @@ import Parse
 
 class ArticlePageViewController: UIViewController {
     
-    var articles = [String]()
+    var articlesTitles = [String]()
+    var articles = [Doc]()
     
     @IBOutlet weak var pageTitle: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var homeIcon: UIImageView!
@@ -41,12 +43,9 @@ class ArticlePageViewController: UIViewController {
         // articles
         callAPI()
         decodeAPI()
-        sleep(2)
+        sleep(4)
         
         print("Count of articles: ", articles.count)
-//        for article in articles {
-//            print(article)
-//        }
         
         var buttons = [UIButton]()
         var button : UIButton
@@ -63,12 +62,12 @@ class ArticlePageViewController: UIViewController {
             button.backgroundColor = UIColor(red: 0.26, green: 0.16, blue: 0.12, alpha: 1.00)
             button.layer.cornerRadius = 5
             button.setTitleColor(UIColor(red: 0.95, green: 0.91, blue: 0.86, alpha: 1.00), for: .normal)
-            button.setTitle(articles[i], for: .normal)
+            button.setTitle(articlesTitles[i], for: .normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
             button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             button.contentHorizontalAlignment = .left
             button.titleEdgeInsets = UIEdgeInsets(top: 0, left: paddingLeft, bottom: 0, right: paddingRight)
-            button.addTarget(self, action: #selector(ListPageViewController.buttonAction(sender:)), for: UIControlEvents.touchUpInside)
+            button.addTarget(self, action: #selector(ArticlePageViewController.buttonAction(sender:)), for: UIControlEvents.touchUpInside)
             
             contentView.addSubview(button)
             
@@ -101,8 +100,21 @@ class ArticlePageViewController: UIViewController {
         listIcon.isUserInteractionEnabled = true
     }
     
+    @objc func buttonAction(sender:UIButton!) {
+        print("Clicked on article")
+        for article in articles {
+            if sender.titleLabel?.text == stripHTMLTags(from: article.title_display) {
+                clickedArticle = article
+                print("clicked article set: ", clickedArticle?.id as Any)
+                break
+            }
+        }
+        performSegue(withIdentifier: "goToClickedArticle", sender: self)
+    }
+    
     @objc func userIconTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
+            self.spinner.startAnimating()
             print("user icon tapped")
             performSegue(withIdentifier: "goToSettings", sender: self)
         }
@@ -131,6 +143,7 @@ class ArticlePageViewController: UIViewController {
     
     @objc func listIconTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
+            self.spinner.startAnimating()
             print("list icon tapped")
             performSegue(withIdentifier: "goToList", sender: self)
         }
@@ -168,9 +181,11 @@ class ArticlePageViewController: UIViewController {
                     var i = 0
                     while (i<10)
                     {
+                        let article = tasks.response.docs[i]
                         let str = self.stripHTMLTags(from: tasks.response.docs[i].title_display)
                         //print(str)
-                        self.articles.append(str)
+                        self.articlesTitles.append(str)
+                        self.articles.append(article)
                         i = i+1
                     }
                 }catch{

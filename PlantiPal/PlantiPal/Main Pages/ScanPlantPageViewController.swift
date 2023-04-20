@@ -1,6 +1,6 @@
 //
 //  ScanPlantPageViewController.swift
-//  first try out on mac
+//  PlantiPal
 //
 //  Created by Delia on 02/04/2023.
 //  Copyright © 2023 Delia. All rights reserved.
@@ -15,6 +15,7 @@ class ScanPlantPageViewController: UIViewController {
     @IBOutlet weak var scanIcon: UIImageView!
     @IBOutlet weak var listIcon: UIImageView!
     @IBOutlet weak var userIcon: UIImageView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,7 @@ class ScanPlantPageViewController: UIViewController {
     
     @objc func homeIconTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
+            self.spinner.startAnimating()
             print("home icon tapped")
             performSegue(withIdentifier: "goToHome", sender: self)
         }
@@ -71,6 +73,7 @@ class ScanPlantPageViewController: UIViewController {
     
     @objc func listIconTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
+            self.spinner.startAnimating()
             print("list icon tapped")
             performSegue(withIdentifier: "goToList", sender: self)
         }

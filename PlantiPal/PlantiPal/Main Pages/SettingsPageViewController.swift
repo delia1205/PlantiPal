@@ -1,6 +1,6 @@
 //
 //  SettingsPageViewController.swift
-//  first try out on mac
+//  PlantiPal
 //
 //  Created by Delia on 23/03/2023.
 //  Copyright © 2023 Delia. All rights reserved.
@@ -15,6 +15,7 @@ class SettingsPageViewController: UIViewController {
     @IBOutlet weak var accountDetails: UIButton!
     @IBOutlet weak var gardenEdit: UIButton!
     @IBOutlet weak var about: UIButton!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBOutlet weak var homeIcon: UIImageView!
     @IBOutlet weak var gardenIcon: UIImageView!
@@ -69,6 +70,7 @@ class SettingsPageViewController: UIViewController {
     
     @objc func homeIconTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
+            self.spinner.startAnimating()
             print("home icon tapped")
             performSegue(withIdentifier: "goToHome", sender: self)
         }
@@ -90,6 +92,7 @@ class SettingsPageViewController: UIViewController {
     
     @objc func listIconTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
+            self.spinner.startAnimating()
             print("list icon tapped")
             performSegue(withIdentifier: "goToList", sender: self)
         }
