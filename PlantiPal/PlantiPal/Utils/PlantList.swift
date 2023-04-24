@@ -21,3 +21,9 @@ struct PlantData: Decodable {
     let id: Int
     let wikipedia_url: String?
 }
+
+struct GardenPlant {
+    let name: String
+    let species: String
+    //let photo: UIImage
+}

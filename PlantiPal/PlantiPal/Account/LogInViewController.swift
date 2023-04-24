@@ -47,12 +47,13 @@ class LogInViewController: UIViewController {
         self.spinner.startAnimating()
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
-            // print("Ok button tapped")
+            print("Ok button tapped")
             
             self.performSegue(withIdentifier: "goToArticlePage", sender: self)
         })
         alert.addAction(okAction)
         self.present(alert, animated: true)
+        //self.spinner.stopAnimating()
     }
     
     func displayAlert(withTitle title: String, message: String) {
@@ -62,9 +63,14 @@ class LogInViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    
+    func stripHTMLTags(from string: String) -> String {
+        return string.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }

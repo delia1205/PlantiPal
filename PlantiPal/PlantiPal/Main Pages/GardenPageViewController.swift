@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class GardenPageViewController: UIViewController {
     
@@ -19,27 +20,136 @@ class GardenPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let scrollView = UIScrollView(frame: CGRect(x: 20, y: 115, width: 335, height: 460))
+        self.view.addSubview(scrollView)
+        
+        if gardenPlants.count == 0 {
+            //fetchGardenData()
+            fetchData { (objects, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else if let objects = objects {
+                    for object in objects {
+                        let gardenPlantName = object["plantName"] as? String
+                        let gardenPlantSpecies = object["plantSpecies"] as? String
+                        //let gardenPlantPhoto = object["plantPhoto"] as? UIImage
+                        let plant = GardenPlant(name: gardenPlantName!, species: gardenPlantSpecies!)//, photo: gardenPlantPhoto!)
+                        gardenPlants.append(plant)
+                    }
+                    
+                    print("Number of plants in garden of user: ", gardenPlants.count)
+                    
+                    if gardenPlants.count == 0 {
+                        let text = "There are no plants in your garden. :("
+                        let noPlantsLabel = UILabel(frame: CGRect(x: 20, y: 120, width: 335, height: 50))
+                        noPlantsLabel.text = text
+                        noPlantsLabel.textColor = UIColor(red: 0.89, green: 0.90, blue: 0.76, alpha: 1.00)
+                        noPlantsLabel.textAlignment = .center
+                        self.view.addSubview(noPlantsLabel)
+                    }
+                    else {
+                        
+                        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 335, height: 110*gardenPlants.count))
+                        contentView.backgroundColor = UIColor.white.withAlphaComponent(0)
+                        
+                        var buttons = [UIButton]()
+                        var button : UIButton
+                        
+                        let paddingLeft: CGFloat = 10
+                        let paddingRight: CGFloat = 10
+                        
+                        let x :CGFloat = 0.0
+                        var y :CGFloat = 0.0
+                        for i in 0...gardenPlants.count-1 {
+                            button = UIButton(type: UIButtonType.system) as UIButton
+                            button.frame = CGRect(x: x, y: y, width: 335.0, height: 100.0)
+                            button.backgroundColor = UIColor(red: 0.89, green: 0.90, blue: 0.76, alpha: 1.00)
+                            button.layer.cornerRadius = 5
+                            button.setTitleColor(UIColor(red: 0.13, green: 0.15, blue: 0.15, alpha: 1.00), for: .normal)
+                            let text = gardenPlants[i].name+"\nSpecies: "+gardenPlants[i].species
+                            button.setTitle(text, for: .normal)
+                            button.titleLabel?.textAlignment = .center
+                            button.titleLabel?.font = UIFont.systemFont(ofSize: 19)
+                            button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+                            button.contentHorizontalAlignment = .center
+                            button.titleEdgeInsets = UIEdgeInsets(top: 0, left: paddingLeft, bottom: 0, right: paddingRight)
+                            button.addTarget(self, action: #selector(GardenPageViewController.buttonAction(sender:)), for: UIControlEvents.touchUpInside)
+                            
+                            contentView.addSubview(button)
+                            
+                            buttons.append(button)
+                            y = y + 110
+                        }
+                        
+                        scrollView.addSubview(contentView)
+                        scrollView.contentSize = contentView.frame.size
+                    }
+                }
+            }
+        }
+        else {
+            
+            let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 335, height: 110*gardenPlants.count))
+            contentView.backgroundColor = UIColor.white.withAlphaComponent(0)
+            
+            var buttons = [UIButton]()
+            var button : UIButton
+            
+            let paddingLeft: CGFloat = 10
+            let paddingRight: CGFloat = 10
+            
+            let x :CGFloat = 0.0
+            var y :CGFloat = 0.0
+            for i in 0...gardenPlants.count-1 { button = UIButton(type: UIButtonType.system) as UIButton
+                button.frame = CGRect(x: x, y: y, width: 335.0, height: 100.0)
+                button.backgroundColor = UIColor(red: 0.89, green: 0.90, blue: 0.76, alpha: 1.00)
+                button.layer.cornerRadius = 5
+                button.setTitleColor(UIColor(red: 0.13, green: 0.15, blue: 0.15, alpha: 1.00), for: .normal)
+                let text = gardenPlants[i].name+"\nSpecies: "+gardenPlants[i].species
+                button.setTitle(text, for: .normal)
+                button.titleLabel?.textAlignment = .center
+                button.titleLabel?.font = UIFont.systemFont(ofSize: 19)
+                button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+                button.contentHorizontalAlignment = .center
+                button.titleEdgeInsets = UIEdgeInsets(top: 0, left: paddingLeft, bottom: 0, right: paddingRight)
+                button.addTarget(self, action: #selector(GardenPageViewController.buttonAction(sender:)), for: UIControlEvents.touchUpInside)
+                
+                contentView.addSubview(button)
+                
+                buttons.append(button)
+                y = y + 110
+            }
+            
+            scrollView.addSubview(contentView)
+            scrollView.contentSize = contentView.frame.size
+        }
+        
+        
         // navbar
         let tapUser = UITapGestureRecognizer(target: self, action: #selector(self.userIconTapped))
-        userIcon.addGestureRecognizer(tapUser)
-        userIcon.isUserInteractionEnabled = true
+        self.userIcon.addGestureRecognizer(tapUser)
+        self.userIcon.isUserInteractionEnabled = true
         
         let tapHome = UITapGestureRecognizer(target: self, action: #selector(self.homeIconTapped))
-        homeIcon.addGestureRecognizer(tapHome)
-        homeIcon.isUserInteractionEnabled = true
+        self.homeIcon.addGestureRecognizer(tapHome)
+        self.homeIcon.isUserInteractionEnabled = true
         
         let tapGarden = UITapGestureRecognizer(target: self, action: #selector(self.gardenIconTapped))
-        gardenIcon.addGestureRecognizer(tapGarden)
-        gardenIcon.isUserInteractionEnabled = true
+        self.gardenIcon.addGestureRecognizer(tapGarden)
+        self.gardenIcon.isUserInteractionEnabled = true
         
         let tapScan = UITapGestureRecognizer(target: self, action: #selector(self.scanIconTapped))
-        scanIcon.addGestureRecognizer(tapScan)
-        scanIcon.isUserInteractionEnabled = true
+        self.scanIcon.addGestureRecognizer(tapScan)
+        self.scanIcon.isUserInteractionEnabled = true
         
         let tapList = UITapGestureRecognizer(target: self, action: #selector(self.listIconTapped))
-        listIcon.addGestureRecognizer(tapList)
-        listIcon.isUserInteractionEnabled = true
+        self.listIcon.addGestureRecognizer(tapList)
+        self.listIcon.isUserInteractionEnabled = true
+    }
+    
+    @objc func buttonAction(sender:UIButton!) {
+        print("Clicked on plant in garden")
     }
     
     @objc func userIconTapped(sender: UITapGestureRecognizer) {
@@ -79,10 +189,18 @@ class GardenPageViewController: UIViewController {
             performSegue(withIdentifier: "goToList", sender: self)
         }
     }
-
+    
+    func fetchData(completion: @escaping ([PFObject]?, Error?) -> Void) {
+        let query = PFQuery(className: "Garden")
+        query.whereKey("username", equalTo: loggedUser.user.username as Any)
+        query.findObjectsInBackground { (objects, error) in
+            completion(objects, error)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }

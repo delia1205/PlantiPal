@@ -11,9 +11,6 @@ import Parse
 
 class ArticlePageViewController: UIViewController {
     
-    var articlesTitles = [String]()
-    var articles = [Doc]()
-    
     @IBOutlet weak var pageTitle: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -34,49 +31,88 @@ class ArticlePageViewController: UIViewController {
         let titleString = "Hello, " + getUsername() + "!"
         self.pageTitle.text = titleString
         
+        //        // articles
+        //        callArticleAPI()
+        //        decodeArticleAPI()
+        //        sleep(4)
+        
         let scrollView = UIScrollView(frame: CGRect(x: 20, y: 115, width: 335, height: 460))
-        view.addSubview(scrollView)
+        self.view.addSubview(scrollView)
         
         let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 335, height: 1100))
         contentView.backgroundColor = UIColor.white.withAlphaComponent(0)
         
-        // articles
-        callAPI()
-        decodeAPI()
-        sleep(4)
-        
-        print("Count of articles: ", articles.count)
-        
-        var buttons = [UIButton]()
-        var button : UIButton
-        
-        let paddingLeft: CGFloat = 10
-        let paddingRight: CGFloat = 10
-        
-        let x :CGFloat = 0.0
-        var y :CGFloat = 0.0
-        for i in 0...9 {
-            button = UIButton(type: UIButtonType.system) as UIButton
-            // x, y, width, height
-            button.frame = CGRect(x: x, y: y, width: 335.0, height: 100.0)
-            button.backgroundColor = UIColor(red: 0.26, green: 0.16, blue: 0.12, alpha: 1.00)
-            button.layer.cornerRadius = 5
-            button.setTitleColor(UIColor(red: 0.95, green: 0.91, blue: 0.86, alpha: 1.00), for: .normal)
-            button.setTitle(articlesTitles[i], for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-            button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-            button.contentHorizontalAlignment = .left
-            button.titleEdgeInsets = UIEdgeInsets(top: 0, left: paddingLeft, bottom: 0, right: paddingRight)
-            button.addTarget(self, action: #selector(ArticlePageViewController.buttonAction(sender:)), for: UIControlEvents.touchUpInside)
-            
-            contentView.addSubview(button)
-            
-            buttons.append(button)
-            y = y + 110
+        if articlesTitles.count == 0 {
+            decodeArticleAPI2 {
+                print("Articles fetched.")
+                
+                print("Count of articles: ", articles.count)
+                
+                var buttons = [UIButton]()
+                var button : UIButton
+                
+                let paddingLeft: CGFloat = 10
+                let paddingRight: CGFloat = 10
+                
+                let x :CGFloat = 0.0
+                var y :CGFloat = 0.0
+                for i in 0...9 {
+                    button = UIButton(type: UIButtonType.system) as UIButton
+                    // x, y, width, height
+                    button.frame = CGRect(x: x, y: y, width: 335.0, height: 100.0)
+                    button.backgroundColor = UIColor(red: 0.26, green: 0.16, blue: 0.12, alpha: 1.00)
+                    button.layer.cornerRadius = 5
+                    button.setTitleColor(UIColor(red: 0.95, green: 0.91, blue: 0.86, alpha: 1.00), for: .normal)
+                    button.setTitle(articlesTitles[i], for: .normal)
+                    button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+                    button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+                    button.contentHorizontalAlignment = .left
+                    button.titleEdgeInsets = UIEdgeInsets(top: 0, left: paddingLeft, bottom: 0, right: paddingRight)
+                    button.addTarget(self, action: #selector(ArticlePageViewController.buttonAction(sender:)), for: UIControlEvents.touchUpInside)
+                    
+                    contentView.addSubview(button)
+                    
+                    buttons.append(button)
+                    y = y + 110
+                }
+                
+                scrollView.addSubview(contentView)
+                scrollView.contentSize = contentView.frame.size
+                
+            }
         }
-        
-        scrollView.addSubview(contentView)
-        scrollView.contentSize = contentView.frame.size
+        else {
+            var buttons = [UIButton]()
+            var button : UIButton
+            
+            let paddingLeft: CGFloat = 10
+            let paddingRight: CGFloat = 10
+            
+            let x :CGFloat = 0.0
+            var y :CGFloat = 0.0
+            for i in 0...9 {
+                button = UIButton(type: UIButtonType.system) as UIButton
+                // x, y, width, height
+                button.frame = CGRect(x: x, y: y, width: 335.0, height: 100.0)
+                button.backgroundColor = UIColor(red: 0.26, green: 0.16, blue: 0.12, alpha: 1.00)
+                button.layer.cornerRadius = 5
+                button.setTitleColor(UIColor(red: 0.95, green: 0.91, blue: 0.86, alpha: 1.00), for: .normal)
+                button.setTitle(articlesTitles[i], for: .normal)
+                button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+                button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+                button.contentHorizontalAlignment = .left
+                button.titleEdgeInsets = UIEdgeInsets(top: 0, left: paddingLeft, bottom: 0, right: paddingRight)
+                button.addTarget(self, action: #selector(ArticlePageViewController.buttonAction(sender:)), for: UIControlEvents.touchUpInside)
+                
+                contentView.addSubview(button)
+                
+                buttons.append(button)
+                y = y + 110
+            }
+            
+            scrollView.addSubview(contentView)
+            scrollView.contentSize = contentView.frame.size
+        }
         
         // navbar
         let tapUser = UITapGestureRecognizer(target: self, action: #selector(self.userIconTapped))
@@ -114,7 +150,6 @@ class ArticlePageViewController: UIViewController {
     
     @objc func userIconTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            self.spinner.startAnimating()
             print("user icon tapped")
             performSegue(withIdentifier: "goToSettings", sender: self)
         }
@@ -128,6 +163,7 @@ class ArticlePageViewController: UIViewController {
     }
     
     @objc func gardenIconTapped(sender: UITapGestureRecognizer) {
+        self.spinner.startAnimating()
         if sender.state == .ended {
             print("garden icon tapped")
             performSegue(withIdentifier: "goToGarden", sender: self)
@@ -142,14 +178,14 @@ class ArticlePageViewController: UIViewController {
     }
     
     @objc func listIconTapped(sender: UITapGestureRecognizer) {
+        self.spinner.startAnimating()
         if sender.state == .ended {
-            self.spinner.startAnimating()
             print("list icon tapped")
             performSegue(withIdentifier: "goToList", sender: self)
         }
     }
     
-    func callAPI() {
+    func callArticleAPI() {
         
         guard let url = URL(string: "https://api.plos.org/search?q=title:plants&wt=json") else{
             return
@@ -160,32 +196,34 @@ class ArticlePageViewController: UIViewController {
             
             if let data = data, let _ = String(data: data, encoding: .utf8){
                 print("json parsed")
+                
             }
         }
         
         task.resume()
     }
     
-    func decodeAPI() {
+    func decodeArticleAPI() {
+        
         guard let url = URL(string: "https://api.plos.org/search?q=title:plants&wt=json") else{return}
-
+        
         let task = URLSession.shared.dataTask(with: url){
             data, response, error in
-
+            
             let decoder = JSONDecoder()
-
+            
             if let data = data{
                 do{
                     let tasks = try decoder.decode(Response.self, from: data)
-
+                    
                     var i = 0
                     while (i<10)
                     {
                         let article = tasks.response.docs[i]
                         let str = self.stripHTMLTags(from: tasks.response.docs[i].title_display)
-                        //print(str)
-                        self.articlesTitles.append(str)
-                        self.articles.append(article)
+                        print(str)
+                        articlesTitles.append(str)
+                        articles.append(article)
                         i = i+1
                     }
                 }catch{
@@ -193,10 +231,53 @@ class ArticlePageViewController: UIViewController {
                 }
             }
         }
+        
         task.resume()
-
+        
     }
-
+    
+    func decodeArticleAPI2(completionHandler: @escaping () -> Void) {
+        guard let url = URL(string: "https://api.plos.org/search?q=title:plants&wt=json") else { return }
+        
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        DispatchQueue.main.async {
+            activityIndicator.center = self.view.center
+            activityIndicator.startAnimating()
+            self.view.addSubview(activityIndicator)
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            DispatchQueue.main.async {
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+            }
+            
+            let decoder = JSONDecoder()
+            
+            if let data = data {
+                do {
+                    let tasks = try decoder.decode(Response.self, from: data)
+                    
+                    var i = 0
+                    while (i < 10) {
+                        let article = tasks.response.docs[i]
+                        let str = self.stripHTMLTags(from: tasks.response.docs[i].title_display)
+                        print(str)
+                        articlesTitles.append(str)
+                        articles.append(article)
+                        i = i + 1
+                    }
+                    
+                    completionHandler()
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
     
     func stripHTMLTags(from string: String) -> String {
         return string.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
@@ -206,5 +287,5 @@ class ArticlePageViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }

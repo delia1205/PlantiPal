@@ -30,6 +30,8 @@ class ClickedArticleViewController: UIViewController {
     
     @IBAction func copyButtonClicked(_ sender: Any) {
         UIPasteboard.general.string = idDOI.text
+        
+        showAlert(title: "Copied!", message: "DOI copied to clipboard.")
     }
     
     @IBAction func backToHome(_ sender: Any) {
@@ -39,6 +41,12 @@ class ClickedArticleViewController: UIViewController {
     
     func stripHTMLTags(from string: String) -> String {
         return string.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
     }
     
     override func didReceiveMemoryWarning() {

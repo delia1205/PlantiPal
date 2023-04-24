@@ -20,3 +20,11 @@ class Main {
 }
 
 var loggedUser = Main()
+
+var gardenPlants = [GardenPlant]()
+
+var articlesTitles = [String]()
+var articles = [Doc]()
+
+var plants = [PlantData]()
+var plantNames = [String]()

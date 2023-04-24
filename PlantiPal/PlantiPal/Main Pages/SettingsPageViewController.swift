@@ -50,7 +50,17 @@ class SettingsPageViewController: UIViewController {
 
     @IBAction func logOut(_ sender: Any) {
         PFUser.logOut()
+        loggedUser = Main()
+        gardenPlants = []
+        articlesTitles = []
+        articles = []
+        plants = []
+        plantNames = []
         performSegue(withIdentifier: "backToMain", sender: self)
+    }
+    
+    @IBAction func gardenDetailsPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToEditGarden", sender: self)
     }
     
     @IBAction func accountDetailsPressed(_ sender: UIButton) {
