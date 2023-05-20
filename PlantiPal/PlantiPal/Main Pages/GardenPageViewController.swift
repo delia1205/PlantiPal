@@ -31,11 +31,19 @@ class GardenPageViewController: UIViewController {
                     print(error.localizedDescription)
                 } else if let objects = objects {
                     for object in objects {
-                        let gardenPlantName = object["plantName"] as? String
-                        let gardenPlantSpecies = object["plantSpecies"] as? String
-                        //let gardenPlantPhoto = object["plantPhoto"] as? UIImage
-                        let plant = GardenPlant(name: gardenPlantName!, species: gardenPlantSpecies!)//, photo: gardenPlantPhoto!)
-                        gardenPlants.append(plant)
+                        do{
+                            let gardenPlantName = object["plantName"] as? String
+                            let gardenPlantSpecies = object["plantSpecies"] as? String
+                            // let gardenPlantPhoto = object["plantPhoto"] as! UIImage
+                            let image: PFFileObject = object["plantPhoto"] as! PFFileObject
+                            let data = try image.getData()
+                            let gardenPlantPhoto = UIImage(data: data)
+//                            print(gardenPlantName)
+//                            print(gardenPlantSpecies)
+//                            print(gardenPlantPhoto)
+                            let plant = GardenPlant(name: gardenPlantName!, species: gardenPlantSpecies!, photo: gardenPlantPhoto!)
+                            gardenPlants.append(plant)
+                        } catch {print(error)}
                     }
                     
                     print("Number of plants in garden of user: ", gardenPlants.count)
@@ -149,7 +157,17 @@ class GardenPageViewController: UIViewController {
     }
     
     @objc func buttonAction(sender:UIButton!) {
+        spinner.startAnimating()
         print("Clicked on plant in garden")
+        for plant in gardenPlants {
+            let text = plant.name+"\nSpecies: "+plant.species
+            if sender.titleLabel?.text == text {
+                clickedPlant = plant
+                print("clicked plant set: ", clickedPlant?.name as Any)
+                break
+            }
+        }
+        performSegue(withIdentifier: "goToClickedPlant", sender: self)
     }
     
     @objc func userIconTapped(sender: UITapGestureRecognizer) {

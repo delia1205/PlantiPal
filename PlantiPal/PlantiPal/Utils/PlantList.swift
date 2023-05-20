@@ -25,5 +25,7 @@ struct PlantData: Decodable {
 struct GardenPlant {
     let name: String
     let species: String
-    //let photo: UIImage
+    let photo: UIImage
 }
+
+var clickedPlant: GardenPlant? = nil
