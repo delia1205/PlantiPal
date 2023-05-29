@@ -134,6 +134,8 @@ class ArticlePageViewController: UIViewController {
         let tapList = UITapGestureRecognizer(target: self, action: #selector(self.listIconTapped))
         listIcon.addGestureRecognizer(tapList)
         listIcon.isUserInteractionEnabled = true
+        
+        print(notifAccess)
     }
     
     @objc func buttonAction(sender:UIButton!) {

@@ -31,7 +31,8 @@ class EditGardenPageViewController: UIViewController {
                         let gardenPlantName = object["plantName"] as? String
                         let gardenPlantSpecies = object["plantSpecies"] as? String
                         let gardenPlantPhoto = object["plantPhoto"] as? UIImage
-                        let plant = GardenPlant(name: gardenPlantName!, species: gardenPlantSpecies!, photo: gardenPlantPhoto!)
+                        let daysToWater = object["wateringDays"] as! Int
+                        let plant = GardenPlant(name: gardenPlantName!, species: gardenPlantSpecies!, photo: gardenPlantPhoto!, daysToWater: daysToWater)
                         gardenPlants.append(plant)
                     }
                     

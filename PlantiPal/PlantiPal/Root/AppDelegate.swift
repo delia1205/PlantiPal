@@ -8,12 +8,12 @@
 
 import UIKit
 import Parse
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let configuration = ParseClientConfiguration {
@@ -32,6 +32,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        print("entered background")
+        //var plantsToBeNotified = [(String, String, Int)]()
+        
+        if(notifAccess == true) {
+            if(gardenPlants.count != 0) {
+                for plant in gardenPlants {
+                    //plantsToBeNotified.append((plant.name, plant.species, plant.daysToWater))
+                    scheduleNotifs(plantName: plant.name, weekInterval: plant.daysToWater, weekday: 2)
+                }
+            }
+        }
+        
+        
+//        if (notifAccess == true) {
+//            fetchGardenData { (objects, error) in
+//                if let error = error {
+//                    print(error.localizedDescription)
+//                } else if let objects = objects {
+//                    for object in objects {
+//                        do{
+//                            let plantName = object["plantName"] as? String
+//                            let plantSpecies = object["plantSpecies"] as? String
+//
+//                            plantsToBeNotified.append((plantName!, plantSpecies!, 1))
+//                        }
+//                    }
+//                }
+//            }
+//            print("set names and species")
+//
+//            for plant in plantsToBeNotified
+//            {
+//                somePlant = plant
+//                fetchPlantData { (objects, error) in
+//                    if let error = error {
+//                        print(error.localizedDescription)
+//                    } else if let objects = objects {
+//                        for object in objects {
+//                            do{
+//                                print("fetched watering days")
+//
+//                                let weekInterval = object["wateringDays"] as? Int
+//                                somePlant.2 = weekInterval!
+//                            }
+//                        }
+//                    }
+//                }
+//                print("set watering days")
+//                scheduleNotifs(plantName: somePlant.0, weekInterval: somePlant.2, weekday: 2)
+//            }
+//        }
+        
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -48,6 +100,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func scheduleNotifs(plantName: String, weekInterval: Int, weekday: Int) {
+        let content = UNMutableNotificationContent()
+        content.title = "Your plant is thirsty!"
+        content.body = "You need to water "+plantName+" today."
+        
+        var dateComponents = DateComponents()
+        dateComponents.weekday = weekday // 1 is Sunday, 2 is Monday, etc.
+        dateComponents.hour = 20
+        dateComponents.minute = 26
+        
+        let initialTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        
+        let calendar = Calendar.current
+        if let nextFireDate = calendar.date(byAdding: .weekOfMonth, value: weekInterval, to: initialTrigger.nextTriggerDate() ?? Date()) {
+            let nextFireDateComponents = calendar.dateComponents([.weekday, .hour, .minute], from: nextFireDate)
+            
+            let nextTrigger = UNCalendarNotificationTrigger(dateMatching: nextFireDateComponents, repeats: true)
+            
+            let identifier = "RepeatingNotification"
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: nextTrigger)
+            
+            UNUserNotificationCenter.current().add(request) { (error) in
+                if let error = error {
+                    print("Error scheduling notification: \(error.localizedDescription)")
+                } else {
+                    print("Repeating notification scheduled.")
+                }
+            }
+        } else {
+            print("Error calculating next fire date.")
+        }
+    }
+    
+    func fetchGardenData(completion: @escaping ([PFObject]?, Error?) -> Void) {
+        let query = PFQuery(className: "Garden")
+        query.whereKey("username", equalTo: loggedUser.user.username as Any)
+        query.findObjectsInBackground { (objects, error) in
+            completion(objects, error)
+        }
+    }
+    
+    func fetchPlantData(completion: @escaping ([PFObject]?, Error?) -> Void) {
+        let query = PFQuery(className: "PlantSpecies")
+        query.whereKey("plantSpecies", equalTo: somePlant.1 as Any)
+        query.findObjectsInBackground { (objects, error) in
+            completion(objects, error)
+        }
+    }
 
 }
 

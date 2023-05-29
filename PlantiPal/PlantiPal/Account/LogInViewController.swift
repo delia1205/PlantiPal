@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import UserNotifications
 
 class LogInViewController: UIViewController {
     
@@ -48,6 +49,14 @@ class LogInViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
             print("Ok button tapped")
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                if granted {
+                    notifAccess = true;
+                } else {
+                    notifAccess = false;
+                }
+            }
             
             self.performSegue(withIdentifier: "goToArticlePage", sender: self)
         })
