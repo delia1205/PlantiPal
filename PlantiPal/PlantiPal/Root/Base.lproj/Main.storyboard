@@ -836,6 +836,16 @@
                                 <color key="textColor" red="0.9805057626" green="1" blue="0.91362540260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click on 'Add photo' to take a photo or upload one from your gallery" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aM5-bO-75e" userLabel="pageTitle">
+                                <rect key="frame" x="25" y="76" width="325" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="pageTitle" label="pageTitle">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.9805057626" green="1" blue="0.91362540260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFt-lI-X8v" userLabel="navbar">
                                 <rect key="frame" x="0.0" y="587" width="375" height="81"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -884,17 +894,64 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiL-HH-oUt">
+                                <rect key="frame" x="25" y="197" width="325" height="287"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXO-pY-I2R">
+                                <rect key="frame" x="126" y="147" width="122" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.85695747700000002" green="0.96551165800000005" blue="0.77830461650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Add photo"/>
+                                <connections>
+                                    <action selector="choosePhotoButtonTapped:" destination="e7k-aC-CFn" eventType="touchUpInside" id="ahD-Ul-1d2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErB-ur-pwn">
+                                <rect key="frame" x="85" y="549" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Learn more about this species"/>
+                                <connections>
+                                    <segue destination="cgd-E1-tWH" kind="showDetail" identifier="goToIdentifiedPlant" id="ZAk-iw-e9o"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant recognised as:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfY-d8-8qD" userLabel="pageTitle">
+                                <rect key="frame" x="25" y="484" width="325" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="pageTitle" label="pageTitle">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.9805057626" green="1" blue="0.91362540260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="plant species" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSc-eU-O3b" userLabel="pageTitle">
+                                <rect key="frame" x="25" y="514" width="325" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="pageTitle" label="pageTitle">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.9805057626" green="1" blue="0.91362540260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.52088488909999997" green="0.64986516500000002" blue="0.34880041789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.20695350339999999" green="0.40825372409999999" blue="0.13087392880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="2MH-gT-e22"/>
                     </view>
                     <connections>
+                        <outlet property="button" destination="XXO-pY-I2R" id="T2x-nj-TZ1"/>
                         <outlet property="gardenIcon" destination="mtq-xA-v4E" id="cOz-3a-ohj"/>
                         <outlet property="homeIcon" destination="lds-P6-KrX" id="S0H-hu-kHz"/>
+                        <outlet property="imageView" destination="kiL-HH-oUt" id="29b-i0-Ler"/>
+                        <outlet property="learnMoreBttn" destination="ErB-ur-pwn" id="oWh-xy-Rsa"/>
                         <outlet property="listIcon" destination="Uwh-0t-a5s" id="X16-nK-2JV"/>
                         <outlet property="scanIcon" destination="25u-fe-SRn" id="e7K-Ql-bDm"/>
+                        <outlet property="speciesField" destination="tSc-eU-O3b" id="U5T-WN-m49"/>
                         <outlet property="spinner" destination="OR2-iX-0dq" id="Jnh-gN-tgL"/>
+                        <outlet property="textField" destination="AfY-d8-8qD" id="KSl-vx-Uee"/>
                         <outlet property="userIcon" destination="P5G-Ha-C2L" id="FVW-ey-kVd"/>
                         <segue destination="0rp-Jh-hEd" kind="showDetail" identifier="goToGarden" id="6OA-yc-cve"/>
                         <segue destination="adZ-an-6h2" kind="showDetail" identifier="goToList" id="lX5-qd-Wz2"/>
@@ -904,7 +961,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8g-dQ-Cy3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2972" y="884"/>
+            <point key="canvasLocation" x="2972" y="883.80809595202402"/>
         </scene>
         <!--Clicked Article View Controller-->
         <scene sceneID="KMG-99-nkO">
@@ -1514,6 +1571,55 @@ delia2001elena@gmail.com</string>
             </objects>
             <point key="canvasLocation" x="4624.8000000000002" y="-49.025487256371818"/>
         </scene>
+        <!--Species Details View Controller-->
+        <scene sceneID="oIC-2d-65S">
+            <objects>
+                <viewController id="cgd-E1-tWH" customClass="SpeciesDetailsViewController" customModule="PlantiPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i3w-nN-Jmt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJh-pb-cEz" userLabel="pageTitle">
+                                <rect key="frame" x="23" y="67" width="336" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="pageTitle" label="pageTitle">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="0.9805057626" green="1" blue="0.91362540260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6y-3A-xuR">
+                                <rect key="frame" x="10" y="23" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.9805057626" green="1" blue="0.91362540260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="e7k-aC-CFn" kind="showDetail" identifier="backToScan" id="eCA-tX-8c1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yd2-5x-aqI">
+                                <rect key="frame" x="16" y="123" width="343" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9149661872" green="1" blue="0.89801495070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.58725779119999999" green="0.73393397179999997" blue="0.39433218549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.88491370170000005" green="1" blue="0.81189843110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="227-8D-GAk"/>
+                    </view>
+                    <connections>
+                        <outlet property="plantSpecies" destination="AJh-pb-cEz" id="Jbz-AW-z7f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPS-52-1SN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4624.8000000000002" y="883.80809595202402"/>
+        </scene>
     </scenes>
     <resources>
         <image name="accIcon" width="500" height="500"/>
@@ -1529,13 +1635,13 @@ delia2001elena@gmail.com</string>
         <image name="userIcon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VvP-Fx-YDz"/>
+        <segue reference="6OA-yc-cve"/>
         <segue reference="cPB-E3-ny6"/>
-        <segue reference="iX6-rt-beA"/>
-        <segue reference="HyS-Qb-jr8"/>
-        <segue reference="M7z-YH-Las"/>
+        <segue reference="lX5-qd-Wz2"/>
+        <segue reference="eCA-tX-8c1"/>
+        <segue reference="qB0-Z4-xnm"/>
         <segue reference="gRC-5a-CgI"/>
-        <segue reference="9YZ-gz-Lak"/>
+        <segue reference="vBP-i1-bEa"/>
         <segue reference="xss-gO-O8C"/>
         <segue reference="1uw-Cv-m5D"/>
     </inferredMetricsTieBreakers>

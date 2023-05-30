@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8EA1AAB5ED290BFDC9456CB4 /* Pods_PlantiPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9633AB16D29AB76C083EEA02 /* Pods_PlantiPal.framework */; };
+		AB018C142A269C1300E04C18 /* SpeciesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018C132A269C1300E04C18 /* SpeciesDetailsViewController.swift */; };
 		AB0BC89229EFF5EB00299FD3 /* ClickedArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89129EFF5EB00299FD3 /* ClickedArticleViewController.swift */; };
 		AB0BC89429F0165100299FD3 /* ChangeUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89329F0165100299FD3 /* ChangeUsernameViewController.swift */; };
 		AB0BC89629F0190000299FD3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89529F0190000299FD3 /* ChangePasswordViewController.swift */; };
@@ -39,6 +40,7 @@
 		17B0219A7866A4BC001AA24B /* Pods-PlantiPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantiPal.release.xcconfig"; path = "Target Support Files/Pods-PlantiPal/Pods-PlantiPal.release.xcconfig"; sourceTree = "<group>"; };
 		9633AB16D29AB76C083EEA02 /* Pods_PlantiPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlantiPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A027026A2C1A14B69452446F /* Pods-PlantiPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantiPal.debug.xcconfig"; path = "Target Support Files/Pods-PlantiPal/Pods-PlantiPal.debug.xcconfig"; sourceTree = "<group>"; };
+		AB018C132A269C1300E04C18 /* SpeciesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailsViewController.swift; sourceTree = "<group>"; };
 		AB0BC89129EFF5EB00299FD3 /* ClickedArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickedArticleViewController.swift; sourceTree = "<group>"; };
 		AB0BC89329F0165100299FD3 /* ChangeUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameViewController.swift; sourceTree = "<group>"; };
 		AB0BC89529F0190000299FD3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				AB0BC89129EFF5EB00299FD3 /* ClickedArticleViewController.swift */,
 				AB2109EC2A17993F007E79F5 /* PlantDetailsViewController.swift */,
+				AB018C132A269C1300E04C18 /* SpeciesDetailsViewController.swift */,
 			);
 			path = "Other Pages";
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			files = (
 				AB98B0BC29D9D57F0024EF56 /* AccountPageViewController.swift in Sources */,
 				AB8FB7D329CCFC96007A8715 /* SettingsPageViewController.swift in Sources */,
+				AB018C142A269C1300E04C18 /* SpeciesDetailsViewController.swift in Sources */,
 				AB0BC89229EFF5EB00299FD3 /* ClickedArticleViewController.swift in Sources */,
 				AB68DC9729C8F21A003BF21A /* ArticlePageViewController.swift in Sources */,
 				AB82905529CD9A7A00258EC4 /* Article.swift in Sources */,

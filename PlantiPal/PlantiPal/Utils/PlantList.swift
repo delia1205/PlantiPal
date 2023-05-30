@@ -30,3 +30,4 @@ struct GardenPlant {
 }
 
 var clickedPlant: GardenPlant? = nil
+var identifiedPlant: GardenPlant? = nil

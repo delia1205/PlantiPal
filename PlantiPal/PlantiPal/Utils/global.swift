@@ -21,6 +21,7 @@ class Main {
 
 var loggedUser = Main()
 var notifAccess = Bool()
+var isScheduled = Bool()
 
 var gardenPlants = [GardenPlant]()
 
