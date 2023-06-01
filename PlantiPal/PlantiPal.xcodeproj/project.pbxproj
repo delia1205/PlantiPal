@@ -13,6 +13,7 @@
 		AB0BC89429F0165100299FD3 /* ChangeUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89329F0165100299FD3 /* ChangeUsernameViewController.swift */; };
 		AB0BC89629F0190000299FD3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89529F0190000299FD3 /* ChangePasswordViewController.swift */; };
 		AB0BC89829F01B8900299FD3 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89729F01B8900299FD3 /* ForgotPasswordViewController.swift */; };
+		AB1738592A276B20005F9A27 /* QuizPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1738582A276B20005F9A27 /* QuizPageViewController.swift */; };
 		AB2109ED2A17993F007E79F5 /* PlantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2109EC2A17993F007E79F5 /* PlantDetailsViewController.swift */; };
 		AB21E6C929C6443B00286D6A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB21E6C829C6443B00286D6A /* Default-568h@2x.png */; };
 		AB3391DC29C4FFE800AD10B4 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3391DB29C4FFE800AD10B4 /* PaddedTextField.swift */; };
@@ -45,6 +46,7 @@
 		AB0BC89329F0165100299FD3 /* ChangeUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameViewController.swift; sourceTree = "<group>"; };
 		AB0BC89529F0190000299FD3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		AB0BC89729F01B8900299FD3 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		AB1738582A276B20005F9A27 /* QuizPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPageViewController.swift; sourceTree = "<group>"; };
 		AB2109EC2A17993F007E79F5 /* PlantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsViewController.swift; sourceTree = "<group>"; };
 		AB21E6C829C6443B00286D6A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AB3391DB29C4FFE800AD10B4 /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				AB0BC89129EFF5EB00299FD3 /* ClickedArticleViewController.swift */,
 				AB2109EC2A17993F007E79F5 /* PlantDetailsViewController.swift */,
 				AB018C132A269C1300E04C18 /* SpeciesDetailsViewController.swift */,
+				AB1738582A276B20005F9A27 /* QuizPageViewController.swift */,
 			);
 			path = "Other Pages";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB1738592A276B20005F9A27 /* QuizPageViewController.swift in Sources */,
 				AB98B0BC29D9D57F0024EF56 /* AccountPageViewController.swift in Sources */,
 				AB8FB7D329CCFC96007A8715 /* SettingsPageViewController.swift in Sources */,
 				AB018C142A269C1300E04C18 /* SpeciesDetailsViewController.swift in Sources */,
