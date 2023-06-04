@@ -17,6 +17,7 @@ class GardenPageViewController: UIViewController {
     @IBOutlet weak var listIcon: UIImageView!
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var weatherIcon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,6 +152,16 @@ class GardenPageViewController: UIViewController {
         let tapList = UITapGestureRecognizer(target: self, action: #selector(self.listIconTapped))
         self.listIcon.addGestureRecognizer(tapList)
         self.listIcon.isUserInteractionEnabled = true
+        
+        let tapWeather = UITapGestureRecognizer(target: self, action: #selector(self.weatherIconTapped))
+        self.weatherIcon.addGestureRecognizer(tapWeather)
+        self.weatherIcon.isUserInteractionEnabled = true
+    }
+    
+    @objc func weatherIconTapped(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            performSegue(withIdentifier: "goToWeather", sender: self)
+        }
     }
     
     @objc func buttonAction(sender:UIButton!) {

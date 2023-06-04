@@ -18,6 +18,8 @@
 		AB2109ED2A17993F007E79F5 /* PlantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2109EC2A17993F007E79F5 /* PlantDetailsViewController.swift */; };
 		AB21E6C929C6443B00286D6A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB21E6C829C6443B00286D6A /* Default-568h@2x.png */; };
 		AB23EFE32A2CCC7500CE0C2E /* AddPlantToGardenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23EFE22A2CCC7500CE0C2E /* AddPlantToGardenViewController.swift */; };
+		AB23EFE52A2CE3C100CE0C2E /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23EFE42A2CE3C100CE0C2E /* WeatherViewController.swift */; };
+		AB23EFE72A2CF0C200CE0C2E /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23EFE62A2CF0C200CE0C2E /* WeatherData.swift */; };
 		AB3391DC29C4FFE800AD10B4 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3391DB29C4FFE800AD10B4 /* PaddedTextField.swift */; };
 		AB68DC9729C8F21A003BF21A /* ArticlePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68DC9629C8F21A003BF21A /* ArticlePageViewController.swift */; };
 		AB68DC9929C8F8E8003BF21A /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68DC9829C8F8E8003BF21A /* global.swift */; };
@@ -54,6 +56,8 @@
 		AB2109EC2A17993F007E79F5 /* PlantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsViewController.swift; sourceTree = "<group>"; };
 		AB21E6C829C6443B00286D6A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AB23EFE22A2CCC7500CE0C2E /* AddPlantToGardenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantToGardenViewController.swift; sourceTree = "<group>"; };
+		AB23EFE42A2CE3C100CE0C2E /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		AB23EFE62A2CF0C200CE0C2E /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		AB3391DB29C4FFE800AD10B4 /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		AB68DC9629C8F21A003BF21A /* ArticlePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageViewController.swift; sourceTree = "<group>"; };
 		AB68DC9829C8F8E8003BF21A /* global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				AB018C132A269C1300E04C18 /* SpeciesDetailsViewController.swift */,
 				AB23EFE22A2CCC7500CE0C2E /* AddPlantToGardenViewController.swift */,
 				AB1738582A276B20005F9A27 /* QuizPageViewController.swift */,
+				AB23EFE42A2CE3C100CE0C2E /* WeatherViewController.swift */,
 			);
 			path = "Other Pages";
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				AB3391DB29C4FFE800AD10B4 /* PaddedTextField.swift */,
 				AB82905429CD9A7A00258EC4 /* Article.swift */,
 				AB75B5B129DF638000DE0CCD /* PlantList.swift */,
+				AB23EFE62A2CF0C200CE0C2E /* WeatherData.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -310,6 +316,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB1738592A276B20005F9A27 /* QuizPageViewController.swift in Sources */,
+				AB23EFE52A2CE3C100CE0C2E /* WeatherViewController.swift in Sources */,
+				AB23EFE72A2CF0C200CE0C2E /* WeatherData.swift in Sources */,
 				AB98B0BC29D9D57F0024EF56 /* AccountPageViewController.swift in Sources */,
 				AB8FB7D329CCFC96007A8715 /* SettingsPageViewController.swift in Sources */,
 				AB018C142A269C1300E04C18 /* SpeciesDetailsViewController.swift in Sources */,
