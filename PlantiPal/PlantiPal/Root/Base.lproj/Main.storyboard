@@ -1898,6 +1898,13 @@ delia2001elena@gmail.com</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plusIcon" translatesAutoresizingMaskIntoConstraints="NO" id="cqU-Wt-6Bg">
+                                <rect key="frame" x="299" y="60" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.58725779119999999" green="0.73393397179999997" blue="0.39433218549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.88491370170000005" green="1" blue="0.81189843110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1905,11 +1912,96 @@ delia2001elena@gmail.com</string>
                     </view>
                     <connections>
                         <outlet property="plantSpecies" destination="AJh-pb-cEz" id="Jbz-AW-z7f"/>
+                        <outlet property="plusIcon" destination="cqU-Wt-6Bg" id="7zO-TV-Aip"/>
+                        <segue destination="HFb-1o-9On" kind="showDetail" identifier="goToAddPlant" id="jGW-Gm-EiA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPS-52-1SN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4624.8000000000002" y="883.80809595202402"/>
+        </scene>
+        <!--Add Plant To Garden View Controller-->
+        <scene sceneID="QDm-SG-Vyo">
+            <objects>
+                <viewController id="HFb-1o-9On" customClass="AddPlantToGardenViewController" customModule="PlantiPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jYq-5K-lG3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a new plant to your garden:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xca-qM-Ihi">
+                                <rect key="frame" x="25" y="54" width="325" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.13426351550000001" green="0.15136843920000001" blue="0.1445715427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjb-ll-NOO">
+                                <rect key="frame" x="16" y="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.53685182330000003" green="0.59577727319999996" blue="0.47191268209999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cgd-E1-tWH" kind="showDetail" identifier="backToSpecies" id="bx0-al-wdw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kyb-lJ-r9t">
+                                <rect key="frame" x="28" y="168" width="117" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant species:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2W-Gs-wph">
+                                <rect key="frame" x="28" y="279" width="138" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kRA-B2-Lp9">
+                                <rect key="frame" x="27" y="210" width="322" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9805057626" green="1" blue="0.91362540260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.13426351550000001" green="0.15136843920000001" blue="0.1445715427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtS-yf-CLs">
+                                <rect key="frame" x="28" y="323" width="322" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9805057626" green="1" blue="0.91362540260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.13426351550000001" green="0.15136843920000001" blue="0.1445715427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCa-Pr-hHB">
+                                <rect key="frame" x="36" y="471" width="302" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.13426351550000001" green="0.15136843920000001" blue="0.1445715427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Add new plant ">
+                                    <color key="titleColor" red="0.89578944439999997" green="0.90341258049999995" blue="0.76518422370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.53685182330000003" green="0.59577727319999996" blue="0.47191268209999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPlantTapped:" destination="HFb-1o-9On" eventType="touchUpInside" id="oWV-i4-oyd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.89578944444656372" green="0.9034125804901123" blue="0.76518422365188599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.13426351550000001" green="0.15136843920000001" blue="0.1445715427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="gtI-oT-twh"/>
+                    </view>
+                    <connections>
+                        <outlet property="addPlantButton" destination="sCa-Pr-hHB" id="YxO-c5-VHr"/>
+                        <outlet property="plantNameField" destination="kRA-B2-Lp9" id="CtJ-Dm-Wj6"/>
+                        <outlet property="plantSpeciesField" destination="mtS-yf-CLs" id="R6w-Ff-XXw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPv-FO-WvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5400.8000000000002" y="883.80809595202402"/>
         </scene>
     </scenes>
     <resources>
@@ -1928,9 +2020,10 @@ delia2001elena@gmail.com</string>
         <image name="userIcon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZAk-iw-e9o"/>
+        <segue reference="jGW-Gm-EiA"/>
+        <segue reference="bx0-al-wdw"/>
         <segue reference="Lk8-XF-FTh"/>
-        <segue reference="FAj-3d-FBU"/>
+        <segue reference="3yu-Q2-mj5"/>
         <segue reference="6OA-yc-cve"/>
         <segue reference="cPB-E3-ny6"/>
         <segue reference="lX5-qd-Wz2"/>

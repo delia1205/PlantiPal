@@ -12,6 +12,7 @@ import Parse
 class SpeciesDetailsViewController: UIViewController {
     
     @IBOutlet weak var plantSpecies: UILabel!
+    @IBOutlet weak var plusIcon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,10 @@ class SpeciesDetailsViewController: UIViewController {
         
         scrollView.addSubview(contentView)
         scrollView.contentSize = contentView.frame.size
+        
+        let tapPlus = UITapGestureRecognizer(target: self, action: #selector(self.plusIconTapped))
+        self.plusIcon.addGestureRecognizer(tapPlus)
+        self.plusIcon.isUserInteractionEnabled = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,6 +109,12 @@ class SpeciesDetailsViewController: UIViewController {
         
         print(label.frame.height)
         return label
+    }
+    
+    @objc func plusIconTapped(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            performSegue(withIdentifier: "goToAddPlant", sender: self)
+        }
     }
     
 }

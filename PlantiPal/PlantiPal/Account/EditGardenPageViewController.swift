@@ -28,12 +28,16 @@ class EditGardenPageViewController: UIViewController {
                     print(error.localizedDescription)
                 } else if let objects = objects {
                     for object in objects {
-                        let gardenPlantName = object["plantName"] as? String
-                        let gardenPlantSpecies = object["plantSpecies"] as? String
-                        let gardenPlantPhoto = object["plantPhoto"] as? UIImage
-                        let daysToWater = object["wateringDays"] as! Int
-                        let plant = GardenPlant(name: gardenPlantName!, species: gardenPlantSpecies!, photo: gardenPlantPhoto!, daysToWater: daysToWater)
-                        gardenPlants.append(plant)
+                        do{
+                            let gardenPlantName = object["plantName"] as? String
+                            let gardenPlantSpecies = object["plantSpecies"] as? String
+                            let image: PFFileObject = object["plantPhoto"] as! PFFileObject
+                            let data = try image.getData()
+                            let gardenPlantPhoto = UIImage(data: data)
+                            let daysToWater = object["wateringDays"] as! Int
+                            let plant = GardenPlant(name: gardenPlantName!, species: gardenPlantSpecies!, photo: gardenPlantPhoto!, daysToWater: daysToWater)
+                            gardenPlants.append(plant)
+                        } catch {print(error)}
                     }
                     
                     if gardenPlants.count == 0 {
