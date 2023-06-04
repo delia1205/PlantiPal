@@ -36,47 +36,6 @@ class ListPageViewController: UIViewController {
         }
         plantFilteredNames = plantNames
         
-        // searchTableView.isHidden = true
-        
-        //        let scrollView = UIScrollView(frame: CGRect(x: 10, y: 145, width: 350, height: 430))
-        //        view.addSubview(scrollView)
-        //
-        //        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 55*plantNames.count))
-        //        contentView.backgroundColor = UIColor.white.withAlphaComponent(0)
-        //
-        //
-        //        //        decodeAPI2 {
-        //
-        //        var buttons = [UIButton]()
-        //        var button : UIButton
-        //
-        //        let paddingLeft: CGFloat = 10
-        //        let paddingRight: CGFloat = 10
-        //
-        //        let x :CGFloat = 0.0
-        //        var y :CGFloat = 0.0
-        //        for i in 0...plantNames.count-1 {
-        //            button = UIButton(type: UIButtonType.system) as UIButton
-        //            button.frame = CGRect(x: x, y: y, width: 350.0, height: 50.0)
-        //            button.backgroundColor = UIColor.white.withAlphaComponent(0)
-        //            button.setTitleColor(UIColor(red: 0.18, green: 0.13, blue: 0.12, alpha: 1.00), for: .normal)
-        //            button.setTitle(plantNames[i], for: .normal)
-        //            button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        //            button.contentHorizontalAlignment = .left
-        //            button.titleEdgeInsets = UIEdgeInsets(top: 0, left: paddingLeft, bottom: 0, right: paddingRight)
-        //            button.addTarget(self, action: #selector(ListPageViewController.buttonAction(sender:)), for: UIControlEvents.touchUpInside)
-        //
-        //            contentView.addSubview(button)
-        //
-        //            buttons.append(button)
-        //            y = y + 55
-        //        }
-        //
-        //        scrollView.addSubview(contentView)
-        //        scrollView.contentSize = contentView.frame.size
-        //        //
-        //        //        }
-        
         
         // navbar
         let tapUser = UITapGestureRecognizer(target: self, action: #selector(self.userIconTapped))
@@ -170,54 +129,6 @@ class ListPageViewController: UIViewController {
         task.resume()
         
     }
-    
-    //    func decodeAPI2(completionHandler: @escaping () -> Void) {
-    //        guard let url = URL(string: "https://api.inaturalist.org/v1/observations?taxon_id=47126&order_by=desc&order=desc&per_page=80&page=1") else{return}
-    //
-    //        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-    //        DispatchQueue.main.async {
-    //            activityIndicator.center = self.view.center
-    //            activityIndicator.startAnimating()
-    //            self.view.addSubview(activityIndicator)
-    //        }
-    //
-    //        let task = URLSession.shared.dataTask(with: url){
-    //            data, response, error in
-    //
-    //            DispatchQueue.main.async {
-    //                activityIndicator.stopAnimating()
-    //                activityIndicator.removeFromSuperview()
-    //            }
-    //
-    //            let decoder = JSONDecoder()
-    //
-    //            if let data = data{
-    //                do{
-    //                    let tasks = try decoder.decode(Result.self, from: data)
-    //
-    //                    var i = 0
-    //                    while (i<80)
-    //                    {
-    //                        let plant = tasks.results[i].taxon
-    //                        let str = tasks.results[i].taxon.name
-    //                        let plantName = str
-    //                        //print(plantName)
-    //                        if !plantNames.contains(plantName) {
-    //                            plantNames.append(plantName)
-    //                            plants.append(plant)
-    //                        }
-    //                        i = i+1
-    //                    }
-    //                    completionHandler()
-    //                }catch{
-    //                    print(error)
-    //                }
-    //            }
-    //        }
-    //
-    //        task.resume()
-    //
-    //    }
     
     @objc func buttonAction(_ sender:UITapGestureRecognizer)
     {

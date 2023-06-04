@@ -13,6 +13,7 @@ class PlantDetailsViewController: UIViewController {
 
     @IBOutlet weak var plantName: UILabel!
     @IBOutlet weak var plantSpecies: UILabel!
+    @IBOutlet weak var journalIcon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,10 +82,21 @@ class PlantDetailsViewController: UIViewController {
         
         scrollView.addSubview(contentView)
         scrollView.contentSize = contentView.frame.size
+        
+        let tapJournal = UITapGestureRecognizer(target: self, action: #selector(self.journalIconTapped))
+        self.journalIcon.addGestureRecognizer(tapJournal)
+        self.journalIcon.isUserInteractionEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @objc func journalIconTapped(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            print("journal icon tapped")
+            performSegue(withIdentifier: "goToJournal", sender: self)
+        }
     }
     
     func fetchData(completion: @escaping ([PFObject]?, Error?) -> Void) {
@@ -108,4 +120,6 @@ class PlantDetailsViewController: UIViewController {
         return label
     }
 
+
 }
+

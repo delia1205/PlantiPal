@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Foundation
 
 class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var homeIcon: UIImageView!
     @IBOutlet weak var gardenIcon: UIImageView!
     @IBOutlet weak var scanIcon: UIImageView!
@@ -36,7 +37,7 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
         button.layer.borderColor = UIColor(red: 0.13, green: 0.15, blue: 0.15, alpha: 1.00).cgColor
         
         imagePicker.delegate = self
-
+        
         // navbar
         let tapUser = UITapGestureRecognizer(target: self, action: #selector(self.userIconTapped))
         userIcon.addGestureRecognizer(tapUser)
@@ -95,7 +96,7 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
             performSegue(withIdentifier: "goToList", sender: self)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -138,15 +139,27 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let selectedImage = info["UIImagePickerControllerOriginalImage"] as? UIImage
         {
-            // call api for recognising plant species
-            // set data for identifiedPlant
-            imageView.image = selectedImage
-            self.textField.isHidden = false
-            self.speciesField.isHidden = false
-            self.learnMoreBttn.isHidden = false
-            
-            // for example and testing purpose only
-            identifiedPlant = gardenPlants[0]
+            self.spinner.startAnimating()
+            self.identifyPlant(image: selectedImage) { scientificName in
+                if let name = scientificName {
+                    print("Identified plant species: \(name)")
+                    DispatchQueue.main.async {
+                        self.imageView.image = selectedImage
+                        self.textField.isHidden = false
+                        self.learnMoreBttn.isHidden = false
+                        self.speciesField.isHidden = false
+                        self.speciesField.text = identifiedPlant?.species
+                        self.spinner.stopAnimating()
+                    }
+                } else {
+                    print("Plant identification failed.")
+                    DispatchQueue.main.async {
+                        self.spinner.stopAnimating()
+                        self.speciesField.isHidden = false
+                        self.speciesField.text = "Plant identification failed."
+                    }
+                }
+            }
         }
         
         picker.dismiss(animated: true, completion: nil)
@@ -159,5 +172,80 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
     @IBAction func choosePhotoButtonTapped(_ sender: UIButton) {
         showImagePicker()
     }
-
+    
+    func identifyPlant(image: UIImage, completion: @escaping (String?) -> Void) {
+        print("identifying plant...")
+        let apiUrl = "https://my-api.plantnet.org/v2/identify/{PROJECT}"
+        let apiKey = "2b10hb7wHHm7bNK4UjCHrv0W"
+        let encodedUrl = apiUrl.replacingOccurrences(of: "{PROJECT}", with: "best") + "?api-key=" + apiKey
+        
+        guard let url = URL(string: encodedUrl) else {
+            print("Invalid URL.")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let boundary = UUID().uuidString
+        let lineBreak = "\r\n"
+        var body = Data()
+        
+        let contentType = "multipart/form-data; boundary=\(boundary)"
+        request.setValue(contentType, forHTTPHeaderField: "Content-Type")
+        
+        let imageData = UIImageJPEGRepresentation(image, 0.8)!
+        body.append("--\(boundary + lineBreak)".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"images\"; filename=\"image.jpeg\"\(lineBreak)".data(using: .utf8)!)
+        body.append("Content-Type: image/jpeg\(lineBreak + lineBreak)".data(using: .utf8)!)
+        body.append(imageData)
+        body.append(lineBreak.data(using: .utf8)!)
+        
+        body.append("--\(boundary)--\(lineBreak)".data(using: .utf8)!)
+        
+        request.httpBody = body
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Request error: \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            if let data = data {
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                        let results = json["results"] as? [[String: Any]],
+                        let bestMatch = results.first,
+                        let species = bestMatch["species"] as? [String: Any],
+                        var scientificName = species["scientificName"] as? String {
+                        if scientificName == "Aloe officinalis Forssk." {
+                            scientificName = "Aloe Vera"
+                        }
+                        else {
+                            if scientificName == "Hibiscus spp." {
+                                scientificName = "Hibiscus"
+                            }
+                            else {
+                                if scientificName == "Tulipa grengiolensis Thommen" {
+                                    scientificName = "Tulip"
+                                }
+                            }
+                        }
+                        identifiedPlant = IdentificationPlant(species: scientificName, photo: image)
+                        print("plant identified: ", scientificName)
+                        completion(scientificName)
+                    } else {
+                        completion(nil)
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error.localizedDescription)")
+                    completion(nil)
+                }
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
 }

@@ -749,7 +749,7 @@
                                 <rect key="frame" x="87" y="198" width="198" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="My Garden">
+                                <state key="normal" title="Manage Garden">
                                     <color key="titleColor" red="0.073151470100000004" green="0.19444219560000001" blue="0.063872611790000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -1515,18 +1515,27 @@ delia2001elena@gmail.com</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0F-42-cwh">
-                                <rect key="frame" x="25" y="446" width="325" height="176"/>
+                                <rect key="frame" x="25" y="446" width="325" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.28002062179999998" green="0.21747851600000001" blue="0.11914509230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ETu-0Y-Mjn">
+                                <rect key="frame" x="25" y="586" width="325" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Want to buy your new plant friend suggested by PlantiPal?">
+                                    <color key="titleColor" red="0.18586189516129037" green="0.14578118336384227" blue="0.08087976625117875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96571621190000001" green="0.85065303420000005" blue="0.64884230649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.42363975250000002" green="0.32950827170000002" blue="0.17790128250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4c3-Jf-7Gm"/>
                     </view>
                     <connections>
+                        <outlet property="buyPlantButton" destination="ETu-0Y-Mjn" id="Umh-Uk-WtS"/>
                         <outlet property="option1" destination="oSi-fA-Vq3" id="Dg3-hB-wVc"/>
                         <outlet property="option2" destination="12d-ac-Wuz" id="Ofq-bL-t4i"/>
                         <outlet property="option3" destination="GI8-1q-fX6" id="CGV-GC-6BM"/>
@@ -1673,19 +1682,185 @@ delia2001elena@gmail.com</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="journalIcon" translatesAutoresizingMaskIntoConstraints="NO" id="6QH-AI-5P9">
+                                <rect key="frame" x="298" y="62" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.58725779119999999" green="0.73393397179999997" blue="0.39433218549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.88491370171521377" green="1" blue="0.81189843111402538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4VE-51-LOv"/>
                     </view>
                     <connections>
+                        <outlet property="journalIcon" destination="6QH-AI-5P9" id="fWZ-WW-SqB"/>
                         <outlet property="plantName" destination="RkX-OR-Hli" id="96o-Wb-Tul"/>
                         <outlet property="plantSpecies" destination="B9t-5f-rxi" id="h91-Yu-ppc"/>
+                        <segue destination="hxj-kD-kwx" kind="showDetail" identifier="goToJournal" id="UcF-ag-9vY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ek9-Ns-XOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4624.8000000000002" y="-49.025487256371818"/>
+        </scene>
+        <!--Plant Journal View Controller-->
+        <scene sceneID="qIU-gI-dxL">
+            <objects>
+                <viewController id="hxj-kD-kwx" customClass="PlantJournalViewController" customModule="PlantiPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="adf-J2-cq1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wM-pc-VWU">
+                                <rect key="frame" x="16" y="16" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="1Wd-gk-gOI" kind="showDetail" identifier="backToPlantDetails" id="3yu-Q2-mj5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4z-oL-Dby">
+                                <rect key="frame" x="16" y="125" width="343" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36782354119999999" green="0.18833044169999999" blue="0.13763284680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.36782354116439819" green="0.18833044171333313" blue="0.13763284683227539" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAD-Xp-jja" userLabel="pageTitle">
+                                <rect key="frame" x="22" y="50" width="337" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="pageTitle" label="pageTitle">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.36782354116439819" green="0.18833044171333313" blue="0.13763284683227539" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzi-UL-H91" userLabel="pageTitle">
+                                <rect key="frame" x="23" y="83" width="336" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="pageTitle" label="pageTitle">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.36782354116439819" green="0.18833044171333313" blue="0.13763284683227539" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plusIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bId-hF-fZP">
+                                <rect key="frame" x="297" y="60" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90951570900537637" green="0.84630815815156224" blue="0.76537041121817329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.36782354116439819" green="0.18833044171333313" blue="0.13763284683227539" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="vfb-7G-9K3"/>
+                    </view>
+                    <connections>
+                        <outlet property="plantName" destination="rAD-Xp-jja" id="mxR-H7-4bh"/>
+                        <outlet property="plantSpecies" destination="xzi-UL-H91" id="okN-o8-jyf"/>
+                        <outlet property="plusIcon" destination="bId-hF-fZP" id="VS7-8z-zVq"/>
+                        <segue destination="UJH-FF-ml6" kind="showDetail" identifier="addEntry" id="md0-YA-66B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EiW-50-Ugv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5402" y="-49"/>
+        </scene>
+        <!--Add Journal Entry View Controller-->
+        <scene sceneID="ne2-AP-x77">
+            <objects>
+                <viewController id="UJH-FF-ml6" customClass="AddJournalEntryViewController" customModule="PlantiPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z2J-gV-gAy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETO-Ng-hyE" userLabel="pageTitle">
+                                <rect key="frame" x="22" y="51" width="337" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="pageTitle" label="pageTitle">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.36782354119999999" green="0.18833044169999999" blue="0.13763284680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plant Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCr-pE-zq2" userLabel="pageTitle">
+                                <rect key="frame" x="23" y="84" width="336" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="pageTitle" label="pageTitle">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.36782354119999999" green="0.18833044169999999" blue="0.13763284680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnH-Lg-zTC">
+                                <rect key="frame" x="16" y="126" width="343" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36782354119999999" green="0.18833044169999999" blue="0.13763284680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.36782354119999999" green="0.18833044169999999" blue="0.13763284680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPT-oE-ggE">
+                                <rect key="frame" x="14" y="16" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="hxj-kD-kwx" kind="showDetail" identifier="backToJournal" id="Lk8-XF-FTh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a new journal entry for:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3o-tv-tId">
+                                <rect key="frame" x="23" y="145" width="336" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.36782354119999999" green="0.18833044169999999" blue="0.13763284680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nah-XP-DsB">
+                                <rect key="frame" x="40" y="538" width="302" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36782354119999999" green="0.18833044169999999" blue="0.13763284680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Add Note">
+                                    <color key="titleColor" red="1" green="0.95994916740000003" blue="0.82883182529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.81934643819999997" green="0.76240527579999995" blue="0.68949168670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNoteTapped:" destination="UJH-FF-ml6" eventType="touchUpInside" id="3kB-Z6-Hzh"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write new note..." translatesAutoresizingMaskIntoConstraints="NO" id="uyD-UE-M7X">
+                                <rect key="frame" x="20" y="216" width="336" height="274"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.81934643819999997" green="0.76240527579999995" blue="0.68949168670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.23937331989999999" green="0.12366069859999999" blue="0.090710691600000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.23937331989247312" green="0.12366069856162591" blue="0.090710691596444876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90951570900000001" green="0.84630815820000005" blue="0.76537041120000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.36782354119999999" green="0.18833044169999999" blue="0.13763284680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="kLC-0K-2wz"/>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="Nah-XP-DsB" id="hgj-Fj-jb7"/>
+                        <outlet property="headerLabel" destination="r3o-tv-tId" id="D7T-W5-JXX"/>
+                        <outlet property="plantName" destination="ETO-Ng-hyE" id="q2g-6x-s82"/>
+                        <outlet property="plantSpecies" destination="kCr-pE-zq2" id="M5v-qi-o7U"/>
+                        <outlet property="textView" destination="uyD-UE-M7X" id="Nc7-A6-ZxG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d4o-Dk-GmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6196" y="-49.025487256371818"/>
         </scene>
         <!--Species Details View Controller-->
         <scene sceneID="oIC-2d-65S">
@@ -1744,6 +1919,7 @@ delia2001elena@gmail.com</string>
         <image name="gardenIcon" width="500" height="500"/>
         <image name="homeIcon" width="120" height="120"/>
         <image name="infoIcon" width="500" height="500"/>
+        <image name="journalIcon" width="250" height="250"/>
         <image name="listIcon" width="128" height="128"/>
         <image name="logo" width="477" height="432"/>
         <image name="plantIcon" width="1093" height="1176"/>
@@ -1752,13 +1928,16 @@ delia2001elena@gmail.com</string>
         <image name="userIcon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="70g-vl-Ncb"/>
+        <segue reference="ZAk-iw-e9o"/>
+        <segue reference="Lk8-XF-FTh"/>
+        <segue reference="FAj-3d-FBU"/>
+        <segue reference="6OA-yc-cve"/>
         <segue reference="cPB-E3-ny6"/>
-        <segue reference="iX6-rt-beA"/>
-        <segue reference="HyS-Qb-jr8"/>
-        <segue reference="ocv-iC-YCQ"/>
+        <segue reference="lX5-qd-Wz2"/>
+        <segue reference="eCA-tX-8c1"/>
+        <segue reference="qB0-Z4-xnm"/>
         <segue reference="gRC-5a-CgI"/>
-        <segue reference="9YZ-gz-Lak"/>
+        <segue reference="vBP-i1-bEa"/>
         <segue reference="xss-gO-O8C"/>
         <segue reference="1uw-Cv-m5D"/>
     </inferredMetricsTieBreakers>

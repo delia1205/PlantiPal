@@ -45,7 +45,7 @@ class SpeciesDetailsViewController: UIViewController {
                     let careDifficultyText = object["careDifficulty"] as! String
                     let originText = object["originCountry"] as! String
                     
-                    let plantDetailsText = "Plant description:\n\n"+descriptionText+"\n\nPlant uses:\n\n"+usesText+"\n\nCan you be allergic to "+(clickedPlant?.name)!+" ?\n\n"+allergyText+"\n\nIs it safe to keep around children?\n\n"+childSafeText+"\n\nIs it safe to keep around pets?\n\n"+petsSafeText+"\n\nHow hard is it to care for?\n\n"+careDifficultyText+"\n\nPlant origin:\n\n"+originText
+                    let plantDetailsText = "Plant description:\n\n"+descriptionText+"\n\nPlant uses:\n\n"+usesText+"\n\nCan you be allergic to "+(identifiedPlant?.species)!+" ?\n\n"+allergyText+"\n\nIs it safe to keep around children?\n\n"+childSafeText+"\n\nIs it safe to keep around pets?\n\n"+petsSafeText+"\n\nHow hard is it to care for?\n\n"+careDifficultyText+"\n\nPlant origin:\n\n"+originText
                     
                     let attributedText = NSMutableAttributedString(string: plantDetailsText)
                     
@@ -57,7 +57,7 @@ class SpeciesDetailsViewController: UIViewController {
                     attributedText.addAttributes(boldFontAttribute, range: range1)
                     let range2 = (plantDetailsText as NSString).range(of: "Plant uses:")
                     attributedText.addAttributes(boldFontAttribute, range: range2)
-                    let range3 = (plantDetailsText as NSString).range(of: "Can you be allergic to "+(clickedPlant?.name)!+" ?")
+                    let range3 = (plantDetailsText as NSString).range(of: "Can you be allergic to "+(identifiedPlant?.species)!+" ?")
                     attributedText.addAttributes(boldFontAttribute, range: range3)
                     let range4 = (plantDetailsText as NSString).range(of: "Is it safe to keep around children?")
                     attributedText.addAttributes(boldFontAttribute, range: range4)
@@ -87,7 +87,7 @@ class SpeciesDetailsViewController: UIViewController {
     
     func fetchData(completion: @escaping ([PFObject]?, Error?) -> Void) {
         let query = PFQuery(className: "PlantSpecies")
-        query.whereKey("plantSpecies", equalTo: clickedPlant?.species as Any)
+        query.whereKey("plantSpecies", equalTo: identifiedPlant?.species as Any)
         query.findObjectsInBackground { (objects, error) in
             completion(objects, error)
         }

@@ -29,5 +29,10 @@ struct GardenPlant {
     let daysToWater: Int
 }
 
+struct IdentificationPlant {
+    let species: String
+    let photo: UIImage
+}
+
 var clickedPlant: GardenPlant? = nil
-var identifiedPlant: GardenPlant? = nil
+var identifiedPlant: IdentificationPlant? = nil

@@ -30,4 +30,4 @@ var articles = [Doc]()
 
 var plants = [PlantData]()
 var plantNames = [String]()
-var somePlant = (String, String, Int)("name", "species", 1)
+// var somePlant = (String, String, Int)("name", "species", 1)

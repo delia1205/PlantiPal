@@ -107,14 +107,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func fetchPlantData(completion: @escaping ([PFObject]?, Error?) -> Void) {
-        let query = PFQuery(className: "PlantSpecies")
-        query.whereKey("plantSpecies", equalTo: somePlant.1 as Any)
-        query.findObjectsInBackground { (objects, error) in
-            completion(objects, error)
-        }
-    }
-    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let notification = response.notification
         let payload = notification.request.content.userInfo

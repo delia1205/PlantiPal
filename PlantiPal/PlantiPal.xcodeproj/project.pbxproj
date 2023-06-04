@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8EA1AAB5ED290BFDC9456CB4 /* Pods_PlantiPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9633AB16D29AB76C083EEA02 /* Pods_PlantiPal.framework */; };
 		AB018C142A269C1300E04C18 /* SpeciesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB018C132A269C1300E04C18 /* SpeciesDetailsViewController.swift */; };
+		AB092FCE2A2BC20500174C63 /* AddJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB092FCD2A2BC20500174C63 /* AddJournalEntryViewController.swift */; };
 		AB0BC89229EFF5EB00299FD3 /* ClickedArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89129EFF5EB00299FD3 /* ClickedArticleViewController.swift */; };
 		AB0BC89429F0165100299FD3 /* ChangeUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89329F0165100299FD3 /* ChangeUsernameViewController.swift */; };
 		AB0BC89629F0190000299FD3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BC89529F0190000299FD3 /* ChangePasswordViewController.swift */; };
@@ -35,6 +36,7 @@
 		ABD6C77129B017E200A154AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD6C76F29B017E200A154AA /* Main.storyboard */; };
 		ABD6C77329B017E500A154AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABD6C77229B017E500A154AA /* Assets.xcassets */; };
 		ABD6C77629B017E500A154AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD6C77429B017E500A154AA /* LaunchScreen.storyboard */; };
+		ABE4DF472A2A1D7900539312 /* PlantJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE4DF462A2A1D7900539312 /* PlantJournalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,7 @@
 		9633AB16D29AB76C083EEA02 /* Pods_PlantiPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlantiPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A027026A2C1A14B69452446F /* Pods-PlantiPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantiPal.debug.xcconfig"; path = "Target Support Files/Pods-PlantiPal/Pods-PlantiPal.debug.xcconfig"; sourceTree = "<group>"; };
 		AB018C132A269C1300E04C18 /* SpeciesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailsViewController.swift; sourceTree = "<group>"; };
+		AB092FCD2A2BC20500174C63 /* AddJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryViewController.swift; sourceTree = "<group>"; };
 		AB0BC89129EFF5EB00299FD3 /* ClickedArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickedArticleViewController.swift; sourceTree = "<group>"; };
 		AB0BC89329F0165100299FD3 /* ChangeUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameViewController.swift; sourceTree = "<group>"; };
 		AB0BC89529F0190000299FD3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		ABD6C77229B017E500A154AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABD6C77529B017E500A154AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABD6C77729B017E500A154AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABE4DF462A2A1D7900539312 /* PlantJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantJournalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 			children = (
 				AB0BC89129EFF5EB00299FD3 /* ClickedArticleViewController.swift */,
 				AB2109EC2A17993F007E79F5 /* PlantDetailsViewController.swift */,
+				ABE4DF462A2A1D7900539312 /* PlantJournalViewController.swift */,
+				AB092FCD2A2BC20500174C63 /* AddJournalEntryViewController.swift */,
 				AB018C132A269C1300E04C18 /* SpeciesDetailsViewController.swift */,
 				AB1738582A276B20005F9A27 /* QuizPageViewController.swift */,
 			);
@@ -316,8 +322,10 @@
 				ABD6C76C29B017E200A154AA /* AppDelegate.swift in Sources */,
 				AB68DC9929C8F8E8003BF21A /* global.swift in Sources */,
 				AB98B0C029D9D5B00024EF56 /* AboutPageViewController.swift in Sources */,
+				ABE4DF472A2A1D7900539312 /* PlantJournalViewController.swift in Sources */,
 				AB98B0BE29D9D5A10024EF56 /* EditGardenPageViewController.swift in Sources */,
 				AB98B0B829D9C69F0024EF56 /* ScanPlantPageViewController.swift in Sources */,
+				AB092FCE2A2BC20500174C63 /* AddJournalEntryViewController.swift in Sources */,
 				AB0BC89829F01B8900299FD3 /* ForgotPasswordViewController.swift in Sources */,
 				AB95BC0F29C472DD00D27A6A /* SignUpViewController.swift in Sources */,
 				AB0BC89429F0165100299FD3 /* ChangeUsernameViewController.swift in Sources */,

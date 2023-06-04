@@ -77,6 +77,7 @@ class QuizPageViewController: UIViewController {
     @IBOutlet weak var option2: UIButton!
     @IBOutlet weak var option3: UIButton!
     @IBOutlet weak var resultsLabel: UILabel!
+    @IBOutlet weak var buyPlantButton: UIButton!
     
     var currentQuestionIndex = 0
     var userAnswers = [String]()
@@ -120,10 +121,14 @@ class QuizPageViewController: UIViewController {
         "Boston Fern (Nephrolepis exaltata)",
         "Jade Plant (Crassula ovata)"
     ]
+    
+    var result = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        buyPlantButton.isHidden = true
+        buyPlantButton.isUserInteractionEnabled = false
         displayQuestion()
     }
 
@@ -297,13 +302,27 @@ class QuizPageViewController: UIViewController {
         if userAnswerPoints.isValid() {
             let maxVal = userAnswerPoints.findMaxValue()
             print(maxVal)
-            let result = userAnswerPoints.findMaxVar()
+            result = userAnswerPoints.findMaxVar()
             print(result)
             resultsLabel.text = "Based on your answers, the recommended plant for you is: \(result)"
+            buyPlantButton.isHidden = false
+            let tapBuyButton = UITapGestureRecognizer(target: self, action: #selector(self.buyButtonAction))
+            buyPlantButton.addGestureRecognizer(tapBuyButton)
+            buyPlantButton.isUserInteractionEnabled = true
         }
         else {
             resultsLabel.text = "Unable to determine a recommended plant based on your answers. Maybe you could change your environment conditions and come back when you're ready to give more of your time and resources to your house plant!"
         }
     }
     
+    @objc func buyButtonAction(_ sender:UITapGestureRecognizer)
+    {
+        let url = "https://www.google.com/search?q=" + replaceSpacesWithPlusSign(result)
+        UIApplication.shared.open(NSURL(string: url)! as URL, options: [:], completionHandler: nil)
+    }
+    
+    func replaceSpacesWithPlusSign(_ input: String) -> String {
+        let replacedString = input.replacingOccurrences(of: " ", with: "+")
+        return replacedString
+    }
 }
