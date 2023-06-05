@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import UserNotifications
 
-class AddPlantToGardenViewController: ViewController {
+class AddPlantToGardenViewController: UIViewController {
 
     @IBOutlet weak var plantNameField: UITextView!
     @IBOutlet weak var plantSpeciesField: UITextView!

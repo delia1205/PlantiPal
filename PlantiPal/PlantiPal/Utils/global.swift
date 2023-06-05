@@ -12,6 +12,7 @@ import Parse
 class Main {
 
     var user = PFUser()
+    var createdAt = String()
     
     func setUser(user: PFUser) {
         self.user = user

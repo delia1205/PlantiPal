@@ -32,11 +32,6 @@ class AccountPageViewController: UIViewController {
         return loggedUser.user.username!
     }
     
-    func getCreatedAtDate() -> String {
-        let date = loggedUser.user.createdAt!
-        return date.toString(dateFormat: "dd-MMM-yyyy")
-    }
-    
     func getEmailAddr() -> String {
         return loggedUser.user.email!
     }
@@ -47,7 +42,7 @@ class AccountPageViewController: UIViewController {
         let userString = getUsername()
         self.usernameText.text = userString
         
-        let createdAtDateString = getCreatedAtDate()
+        let createdAtDateString = loggedUser.createdAt
         self.createdAtText.text = createdAtDateString
         
         let emailAddrString = getEmailAddr()

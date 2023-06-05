@@ -56,6 +56,13 @@ class SettingsPageViewController: UIViewController {
         articles = []
         plants = []
         plantNames = []
+        
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        UserDefaults.standard.set("", forKey: "objectId")
+        UserDefaults.standard.set("", forKey: "username")
+        UserDefaults.standard.set("", forKey: "password")
+        UserDefaults.standard.set("", forKey: "email")
+        UserDefaults.standard.set("", forKey: "createdAt")
         performSegue(withIdentifier: "backToMain", sender: self)
     }
     

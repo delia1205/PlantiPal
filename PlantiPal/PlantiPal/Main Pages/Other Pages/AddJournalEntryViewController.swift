@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import UserNotifications
 
-class AddJournalEntryViewController: ViewController {
+class AddJournalEntryViewController: UIViewController {
 
     @IBOutlet weak var plantName: UILabel!
     @IBOutlet weak var plantSpecies: UILabel!

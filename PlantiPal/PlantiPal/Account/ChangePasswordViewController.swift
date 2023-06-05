@@ -31,6 +31,12 @@ class ChangePasswordViewController: UIViewController {
                 user?.setValue(self.newPassword.text!, forKey: "password")
                 user?.saveInBackground()
                 
+                UserDefaults.standard.set(false, forKey: "isLoggedIn")
+                UserDefaults.standard.set("", forKey: "objectId")
+                UserDefaults.standard.set("", forKey: "username")
+                UserDefaults.standard.set("", forKey: "password")
+                UserDefaults.standard.set("", forKey: "email")
+                UserDefaults.standard.set("", forKey: "createdAt")
                 self.displayAlertAndSegue(withTitle: "Changed password succesfully", message: "You must log in again.")
             }
             else {

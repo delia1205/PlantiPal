@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import UserNotifications
 
 extension UIViewController: UITextFieldDelegate{
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -17,10 +18,10 @@ extension UIViewController: UITextFieldDelegate{
 }
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
     }
     
     @IBOutlet weak var LogInBttnPressed:UIButton!

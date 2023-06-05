@@ -23,6 +23,19 @@ class LogInViewController: UIViewController {
         passwordLogIn.delegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
+            print("already logged in")
+            // loggedUser = UserDefaults.standard.object(forKey: "loggedUser") as! Main
+            loggedUser.user.objectId = UserDefaults.standard.string(forKey: "objectId")
+            loggedUser.user.username = UserDefaults.standard.string(forKey: "username")
+            loggedUser.user.password = UserDefaults.standard.string(forKey: "password")
+            loggedUser.user.email = UserDefaults.standard.string(forKey: "email")
+            loggedUser.createdAt = UserDefaults.standard.string(forKey: "createdAt")!
+            displayAlertAndSegue(withTitle: "Already logged in", message: "")
+        }
+    }
+    
     @IBOutlet weak var LogInController: UIButton!
     
     @IBOutlet weak var SignUpFromLogIn:UIButton!
@@ -35,6 +48,19 @@ class LogInViewController: UIViewController {
             (user: PFUser?, error: Error?) -> Void in
             if user != nil {
                 loggedUser.setUser(user: user!)
+                
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                UserDefaults.standard.set(loggedUser.user.objectId, forKey: "objectId")
+                UserDefaults.standard.set(loggedUser.user.username, forKey: "username")
+                UserDefaults.standard.set(loggedUser.user.password, forKey: "password")
+                UserDefaults.standard.set(loggedUser.user.email, forKey: "email")
+                let date = loggedUser.user.createdAt
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/YYYY"
+                let dateString = dateFormatter.string(from: date!)
+                print("CREATED AT DATE STRING: ", dateString)
+                UserDefaults.standard.set(dateString, forKey: "createdAt")
+                loggedUser.createdAt = dateString
                 
                 self.displayAlertAndSegue(withTitle: "Login Successful", message: "")
             }

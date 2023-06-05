@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class PlantJournalViewController: ViewController {
+class PlantJournalViewController: UIViewController {
 
     @IBOutlet weak var plantName: UILabel!
     @IBOutlet weak var plantSpecies: UILabel!

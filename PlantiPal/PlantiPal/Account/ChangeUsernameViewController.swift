@@ -31,6 +31,12 @@ class ChangeUsernameViewController: UIViewController {
                 user?.setValue(self.newUsername.text!, forKey: "username")
                 user?.saveInBackground()
                 
+                UserDefaults.standard.set(false, forKey: "isLoggedIn")
+                UserDefaults.standard.set("", forKey: "objectId")
+                UserDefaults.standard.set("", forKey: "username")
+                UserDefaults.standard.set("", forKey: "password")
+                UserDefaults.standard.set("", forKey: "email")
+                UserDefaults.standard.set("", forKey: "createdAt")
                 self.displayAlertAndSegue(withTitle: "Changed username succesfully", message: "You must log in again.")
             }
             else {
