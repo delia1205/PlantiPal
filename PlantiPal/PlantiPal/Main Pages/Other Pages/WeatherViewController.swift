@@ -53,9 +53,11 @@ class WeatherViewController: ViewController {
                 var message: String
                 if weather.days[0].snow > 0 {
                     message = "Today will have some snow precipitations. You should cover the plants you are storing outside, or protect them from the snow in any way possible."
+                    isSnowy = true
                 }
                 else {
                     message = "No heavy precipitations today or snow, your outside plants will be happy today!"
+                    isSnowy = false
                 }
                 self.conditionsText.text = weather.days[0].description + " " + message
                 self.sunriseTime.text = weather.currentConditions.sunrise

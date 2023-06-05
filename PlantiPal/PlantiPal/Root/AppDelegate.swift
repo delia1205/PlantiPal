@@ -53,6 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         }
         
+        if(isSnowy == true) {
+            scheduleWeatherNotif()
+        }
+        
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -107,6 +111,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         } else {
             print("Error calculating next fire date.")
+        }
+    }
+    
+    func scheduleWeatherNotif() {
+        let content = UNMutableNotificationContent()
+        content.title = "Weather Alert"
+        content.body = "Today will snow. Cover your outside plants to protect them!"
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 300, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "weatherNotification", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            } else {
+                print("Weather notification scheduled successfully!")
+            }
         }
     }
     

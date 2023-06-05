@@ -29,3 +29,5 @@ struct WeatherDays: Decodable {
     let description: String
     let snow: Float
 }
+
+var isSnowy: Bool = false
