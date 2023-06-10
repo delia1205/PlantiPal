@@ -2170,7 +2170,7 @@ delia2001elena@gmail.com</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCa-Pr-hHB">
-                                <rect key="frame" x="36" y="471" width="302" height="47"/>
+                                <rect key="frame" x="36" y="514" width="302" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13426351550000001" green="0.15136843920000001" blue="0.1445715427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -2182,6 +2182,31 @@ delia2001elena@gmail.com</string>
                                     <action selector="addPlantTapped:" destination="HFb-1o-9On" eventType="touchUpInside" id="oWV-i4-oyd"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="S3F-hE-SpM">
+                                <rect key="frame" x="110" y="443" width="156" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inside" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkU-ww-ebS">
+                                <rect key="frame" x="28" y="447" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outside" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLk-wS-hcu">
+                                <rect key="frame" x="289" y="447" width="60" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where will you keep this plant?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87P-pz-mK5">
+                                <rect key="frame" x="27" y="395" width="305" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.89578944444656372" green="0.9034125804901123" blue="0.76518422365188599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.13426351550000001" green="0.15136843920000001" blue="0.1445715427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2189,6 +2214,7 @@ delia2001elena@gmail.com</string>
                     </view>
                     <connections>
                         <outlet property="addPlantButton" destination="sCa-Pr-hHB" id="YxO-c5-VHr"/>
+                        <outlet property="isOutsideSlider" destination="S3F-hE-SpM" id="oTh-Tj-Tl9"/>
                         <outlet property="plantNameField" destination="kRA-B2-Lp9" id="CtJ-Dm-Wj6"/>
                         <outlet property="plantSpeciesField" destination="mtS-yf-CLs" id="R6w-Ff-XXw"/>
                     </connections>
@@ -2216,9 +2242,9 @@ delia2001elena@gmail.com</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bx0-al-wdw"/>
-        <segue reference="Lk8-XF-FTh"/>
+        <segue reference="UcF-ag-9vY"/>
         <segue reference="FAj-3d-FBU"/>
-        <segue reference="v61-5T-LJQ"/>
+        <segue reference="VvP-Fx-YDz"/>
         <segue reference="mAw-6h-LEx"/>
         <segue reference="PKK-dI-VXb"/>
         <segue reference="Vd9-GG-FCc"/>

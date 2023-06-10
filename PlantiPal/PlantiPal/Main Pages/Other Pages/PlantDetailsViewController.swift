@@ -24,7 +24,7 @@ class PlantDetailsViewController: UIViewController {
         let scrollView = UIScrollView(frame: CGRect(x: 23, y: 135, width: 348, height: 520))
         self.view.addSubview(scrollView)
         
-        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 335, height: 2550))
+        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 335, height: 2650))
         contentView.backgroundColor = UIColor.white.withAlphaComponent(0)
         
         let image = clickedPlant?.photo

@@ -27,6 +27,7 @@ struct GardenPlant {
     let species: String
     let photo: UIImage
     let daysToWater: Int
+    let isOutside: Bool
 }
 
 struct IdentificationPlant {
