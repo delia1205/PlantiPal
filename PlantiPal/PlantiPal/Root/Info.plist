@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>We&apos;ll use the camera so you can upload photos of the plants you want to identify in real time!</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>We’ll use this to generate your exact weather reports and notifications for your plants!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

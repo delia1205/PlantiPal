@@ -23,6 +23,9 @@ class AddPlantToGardenViewController: UIViewController {
         plantNameField.paddingSpace()
         plantSpeciesField.paddingSpace()
         plantSpeciesField.text = identifiedPlant?.species
+        
+        let tapBg = UITapGestureRecognizer(target: self, action: #selector(handleTapBg))
+        view.addGestureRecognizer(tapBg)
     }
 
     @IBAction func addPlantTapped(_ sender: Any) {
@@ -49,11 +52,15 @@ class AddPlantToGardenViewController: UIViewController {
         let data = UIImagePNGRepresentation(image!)
         gardenObject["plantPhoto"] = PFFileObject(data: data!)
         gardenObject["isOutside"] = isOutsideBool
+        if plantSpecies == "Hibiscus" {
+            gardenObject["wateringDays"] = 3
+        }
         gardenObject.saveInBackground {
             (success: Bool, error: Error?) in
             if (success) {
                 print("plant added")
                 self.displayAlertAndSegue(withTitle: "Plant added to garden", message: "The new plant, " + self.plantNameField.text + " was added successfully.")
+                gardenPlants = [GardenPlant]()
             }
             else {
                 print("some error")
@@ -87,6 +94,11 @@ class AddPlantToGardenViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
     }
     
+    @objc func handleTapBg() {
+        plantNameField.resignFirstResponder()
+        plantSpeciesField.resignFirstResponder()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -99,3 +111,4 @@ extension UITextView {
         self.textContainerInset = UIEdgeInsets(top: 10, left: 4, bottom: 4, right: 4)
     }
 }
+

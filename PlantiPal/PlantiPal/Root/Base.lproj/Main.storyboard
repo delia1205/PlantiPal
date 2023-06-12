@@ -918,11 +918,11 @@
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiL-HH-oUt">
-                                <rect key="frame" x="25" y="197" width="325" height="287"/>
+                                <rect key="frame" x="37" y="187" width="300" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXO-pY-I2R">
-                                <rect key="frame" x="126" y="147" width="122" height="34"/>
+                                <rect key="frame" x="126" y="143" width="122" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.85695747700000002" green="0.96551165800000005" blue="0.77830461650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -2241,16 +2241,16 @@ delia2001elena@gmail.com</string>
         <image name="weatherIcon" width="288" height="216"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bx0-al-wdw"/>
+        <segue reference="ZAk-iw-e9o"/>
         <segue reference="UcF-ag-9vY"/>
         <segue reference="FAj-3d-FBU"/>
-        <segue reference="VvP-Fx-YDz"/>
+        <segue reference="6OA-yc-cve"/>
         <segue reference="mAw-6h-LEx"/>
-        <segue reference="PKK-dI-VXb"/>
+        <segue reference="lX5-qd-Wz2"/>
         <segue reference="Vd9-GG-FCc"/>
-        <segue reference="ZV3-kP-lsU"/>
+        <segue reference="qB0-Z4-xnm"/>
         <segue reference="gRC-5a-CgI"/>
-        <segue reference="lsv-Wy-pba"/>
+        <segue reference="vBP-i1-bEa"/>
         <segue reference="xss-gO-O8C"/>
         <segue reference="1uw-Cv-m5D"/>
     </inferredMetricsTieBreakers>

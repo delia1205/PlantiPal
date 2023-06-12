@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import UserNotifications
 
-class AddJournalEntryViewController: UIViewController {
+class AddJournalEntryViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var plantName: UILabel!
     @IBOutlet weak var plantSpecies: UILabel!
@@ -24,6 +24,8 @@ class AddJournalEntryViewController: UIViewController {
         plantName.text = clickedPlant?.name
         plantSpecies.text = clickedPlant?.species
         headerLabel.text = "Add a new journal entry for " + (clickedPlant?.name)! + ": "
+        
+        textView.delegate = self 
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,5 +71,13 @@ class AddJournalEntryViewController: UIViewController {
         })
         alert.addAction(okAction)
         self.present(alert, animated: true)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }

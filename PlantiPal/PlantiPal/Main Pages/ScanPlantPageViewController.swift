@@ -145,6 +145,8 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
                     print("Identified plant species: \(name)")
                     DispatchQueue.main.async {
                         self.imageView.image = selectedImage
+                        // self.imageView.frame = CGRect(x:25, y:197, width: 325, height: 287)
+                        self.imageView.contentMode = .scaleAspectFill
                         self.textField.isHidden = false
                         self.learnMoreBttn.isHidden = false
                         self.speciesField.isHidden = false
@@ -219,18 +221,17 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
                         let bestMatch = results.first,
                         let species = bestMatch["species"] as? [String: Any],
                         var scientificName = species["scientificName"] as? String {
-                        if scientificName == "Aloe officinalis Forssk." {
+                        if scientificName.starts(with: "Aloe") {
                             scientificName = "Aloe Vera"
                         }
-                        else {
-                            if scientificName == "Hibiscus spp." {
-                                scientificName = "Hibiscus"
-                            }
-                            else {
-                                if scientificName == "Tulipa grengiolensis Thommen" {
-                                    scientificName = "Tulip"
-                                }
-                            }
+                        if scientificName.starts(with: "Hibiscus") {
+                            scientificName = "Hibiscus"
+                        }
+                        if scientificName.starts(with: "Tulipa") {
+                            scientificName = "Tulip"
+                        }
+                        if scientificName.starts(with: "Rosa") {
+                            scientificName = "Rose"
                         }
                         identifiedPlant = IdentificationPlant(species: scientificName, photo: image)
                         print("plant identified: ", scientificName)

@@ -121,7 +121,8 @@ class EditGardenPageViewController: UIViewController {
                         for object in objects {
                             object.deleteInBackground()
                             self.showAlert(title: "Plant removed", message: gardenPlant.name+" was successfully removed.")
-                            gardenPlants = []
+                            gardenPlants = [GardenPlant]()
+                            // gardenPlants = []
                             self.performSegue(withIdentifier: "toSettings", sender: self)
                         }
                     }

@@ -46,10 +46,10 @@ class WeatherViewController: UIViewController {
             DispatchQueue.main.async {
                 self.date.text = weather.days[0].datetime
                 self.descriptionText.text = weather.description
-                self.lowestTemp.text = String(weather.days[0].tempmin)
-                self.highestTemp.text = String(weather.days[0].tempmax)
-                self.feelsLikeTemp.text = String(weather.days[0].feelslike)
-                self.rnTemp.text = String(weather.days[0].temp)
+                self.lowestTemp.text = String(Double((weather.days[0].tempmin - 32) * 5/9).rounded(toPlaces: 1))
+                self.highestTemp.text = String(Double((weather.days[0].tempmax - 32) * 5/9).rounded(toPlaces: 1))
+                self.feelsLikeTemp.text = String(Double((weather.days[0].feelslike - 32) * 5/9).rounded(toPlaces: 1))
+                self.rnTemp.text = String(Double((weather.days[0].temp - 32) * 5/9).rounded(toPlaces: 1))
                 var message: String
                 if weather.days[0].snow > 0 {
                     message = "Today will have some snow precipitations. You should cover the plants you are storing outside, or protect them from the snow in any way possible."
@@ -80,3 +80,11 @@ class WeatherViewController: UIViewController {
     }
     
 }
+
+extension Double {
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+}
+
