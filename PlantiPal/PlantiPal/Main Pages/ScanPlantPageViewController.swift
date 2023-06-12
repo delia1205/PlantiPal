@@ -140,12 +140,11 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
         if let selectedImage = info["UIImagePickerControllerOriginalImage"] as? UIImage
         {
             self.spinner.startAnimating()
-            self.identifyPlant(image: selectedImage) { scientificName in
+            self.identifyPlantPlantiPalModel(image: selectedImage) { scientificName in
                 if let name = scientificName {
                     print("Identified plant species: \(name)")
                     DispatchQueue.main.async {
                         self.imageView.image = selectedImage
-                        // self.imageView.frame = CGRect(x:25, y:197, width: 325, height: 287)
                         self.imageView.contentMode = .scaleAspectFill
                         self.textField.isHidden = false
                         self.learnMoreBttn.isHidden = false
@@ -237,6 +236,67 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
                         print("plant identified: ", scientificName)
                         completion(scientificName)
                     } else {
+                        completion(nil)
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error.localizedDescription)")
+                    completion(nil)
+                }
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
+ 
+    func identifyPlantPlantiPalModel(image: UIImage, completion: @escaping (String?) -> Void) {
+        let Url = "http://192.168.100.156:5000/predict"
+        
+        guard let url = URL(string: Url) else {
+            print("Invalid URL.")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let boundary = UUID().uuidString
+        let lineBreak = "\r\n"
+        var body = Data()
+        
+        let contentType = "multipart/form-data; boundary=\(boundary)"
+        request.setValue(contentType, forHTTPHeaderField: "Content-Type")
+        
+        let imageData = UIImageJPEGRepresentation(image, 0.8)!
+        body.append("--\(boundary + lineBreak)".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\(lineBreak)".data(using: .utf8)!)
+        body.append("Content-Type: image/jpeg\(lineBreak + lineBreak)".data(using: .utf8)!)
+        body.append(imageData)
+        body.append(lineBreak.data(using: .utf8)!)
+        
+        body.append("--\(boundary)--\(lineBreak)".data(using: .utf8)!)
+        
+        request.httpBody = body
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Request error: \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            if let data = data {
+                print(data)
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                        let result = json["predicted_class"] as? Int,
+                        let plantName = json["predicted_label"] as? String,
+                        let probability = json["predicted_probability"] as? Float {
+                        identifiedPlant = IdentificationPlant(species: plantName, photo: image)
+                        print(result, " plant identified: ", plantName, " with probability score: ", probability)
+                        completion(plantName)
+                    } else {
+                        print("json nu exista sau nu e serializable")
                         completion(nil)
                     }
                 } catch {
