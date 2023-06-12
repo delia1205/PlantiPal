@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 for plant in gardenPlants {
                     let weekday = Calendar.current.component(.weekday, from: Date())
                     // print(weekday)
-                    scheduleNotifs(plantName: plant.name, weekInterval: plant.daysToWater, weekday: weekday, hour: 8, minute: index)
+                    scheduleNotifs(plantName: plant.name, weekInterval: plant.daysToWater, weekday: weekday, hour: 8, minute:index)
                     isScheduled = true
                     index = index+1
                     
