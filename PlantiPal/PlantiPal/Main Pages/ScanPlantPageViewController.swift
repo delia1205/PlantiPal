@@ -140,20 +140,40 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
         if let selectedImage = info["UIImagePickerControllerOriginalImage"] as? UIImage
         {
             self.spinner.startAnimating()
-            self.identifyPlantPlantiPalModel(image: selectedImage) { scientificName in
-                if let name = scientificName {
-                    print("Identified plant species: \(name)")
-                    DispatchQueue.main.async {
-                        self.imageView.image = selectedImage
-                        self.imageView.contentMode = .scaleAspectFill
-                        self.textField.isHidden = false
-                        self.learnMoreBttn.isHidden = false
-                        self.speciesField.isHidden = false
-                        self.speciesField.text = identifiedPlant?.species
-                        self.spinner.stopAnimating()
+            self.identifyPlantPlantiPalModel(image: selectedImage) { scientificName, probabilityScore in
+                if let name = scientificName,
+                    let score = probabilityScore {
+                    if score * 100 > 95 {
+                        print("Identified plant species: \(name)")
+                        DispatchQueue.main.async {
+                            self.imageView.image = selectedImage
+                            self.imageView.contentMode = .scaleAspectFill
+                            self.textField.isHidden = false
+                            self.learnMoreBttn.isHidden = false
+                            self.speciesField.isHidden = false
+                            self.speciesField.text = identifiedPlant?.species
+                            self.spinner.stopAnimating()
+                        }
                     }
-                } else {
-                    print("Plant identification failed.")
+                    else {
+                        self.identifyPlant(image: selectedImage) { scientificName in
+                            if let name = scientificName {
+                                print("Identified plant species: \(name)")
+                                DispatchQueue.main.async {
+                                    self.imageView.image = selectedImage
+                                    self.imageView.contentMode = .scaleAspectFill
+                                    self.textField.isHidden = false
+                                    self.learnMoreBttn.isHidden = false
+                                    self.speciesField.isHidden = false
+                                    self.speciesField.text = identifiedPlant?.species
+                                    self.spinner.stopAnimating()
+                                }
+                            }
+                        }
+                    }
+                }
+                else {
+                    print("Plant identification failed. Try again later.")
                     DispatchQueue.main.async {
                         self.spinner.stopAnimating()
                         self.speciesField.isHidden = false
@@ -248,8 +268,8 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
         }
         task.resume()
     }
- 
-    func identifyPlantPlantiPalModel(image: UIImage, completion: @escaping (String?) -> Void) {
+    
+    func identifyPlantPlantiPalModel(image: UIImage, completion: @escaping (String?, Float?) -> Void) {
         let Url = "http://192.168.100.156:5000/predict"
         
         guard let url = URL(string: Url) else {
@@ -281,7 +301,7 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Request error: \(error.localizedDescription)")
-                completion(nil)
+                completion(nil, nil)
                 return
             }
             
@@ -293,18 +313,17 @@ class ScanPlantPageViewController: UIViewController, UIImagePickerControllerDele
                         let plantName = json["predicted_label"] as? String,
                         let probability = json["predicted_probability"] as? Float {
                         identifiedPlant = IdentificationPlant(species: plantName, photo: image)
-                        print(result, " plant identified: ", plantName, " with probability score: ", probability)
-                        completion(plantName)
+                        print(result, " plant identified: ", plantName, " with probability score: ", probability * 100)
+                        completion(plantName, probability)
                     } else {
-                        print("json nu exista sau nu e serializable")
-                        completion(nil)
+                        completion(nil, nil)
                     }
                 } catch {
                     print("Error parsing JSON: \(error.localizedDescription)")
-                    completion(nil)
+                    completion(nil, nil)
                 }
             } else {
-                completion(nil)
+                completion(nil, nil)
             }
         }
         task.resume()

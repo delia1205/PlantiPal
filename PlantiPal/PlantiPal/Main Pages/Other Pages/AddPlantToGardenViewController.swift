@@ -53,7 +53,25 @@ class AddPlantToGardenViewController: UIViewController {
         gardenObject["plantPhoto"] = PFFileObject(data: data!)
         gardenObject["isOutside"] = isOutsideBool
         if plantSpecies == "Hibiscus" {
-            gardenObject["wateringDays"] = 3
+            gardenObject["wateringDays"] = 2
+        }
+        if plantSpecies == "Tulip" {
+            gardenObject["wateringDays"] = 7
+        }
+        if plantSpecies == "Daisy" {
+            gardenObject["wateringDays"] = 7
+        }
+        if plantSpecies == "Sunflower" {
+            gardenObject["wateringDays"] = 7
+        }
+        if plantSpecies == "Rose" {
+            gardenObject["wateringDays"] = 2
+        }
+        if plantSpecies == "Dandelion" {
+            gardenObject["wateringDays"] = 9
+        }
+        if plantSpecies == "Aloe Vera" {
+            gardenObject["wateringDays"] = 21
         }
         gardenObject.saveInBackground {
             (success: Bool, error: Error?) in
